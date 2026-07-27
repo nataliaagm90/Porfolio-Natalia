@@ -29,13 +29,13 @@ document.querySelectorAll(".nav-link").forEach(link => {
 if (
     pagina.includes("proyectos") ||
 
-    pagina.includes("diseñografico") ||
-    pagina.includes("aldeasinfantiles_diseñografico") ||
-    pagina.includes("sanen_diseñografico") ||
-    pagina.includes("sanen_diseñografico") ||
-    pagina.includes("natalia_diseñografico") ||
+    pagina.includes("disenografico") ||
+    pagina.includes("aldeasinfantiles_disenografico") ||
+    pagina.includes("sanen_disenografico") ||
+    pagina.includes("sanen_disenografico") ||
+    pagina.includes("natalia_disenografico") ||
 
-    pagina.includes("diseñoweb") ||
+    pagina.includes("disenoweb") ||
 
     pagina.includes("videos") ||
     pagina.includes("aldeasinfantiles_video") ||
@@ -53,22 +53,22 @@ if (
 
 if (
 
-    pagina.includes("diseñografico") ||
-    pagina.includes("aldeasinfantiles_diseñografico") ||
-    pagina.includes("sanen_diseñografico") ||
-    pagina.includes("sanen_diseñografico") ||
-    pagina.includes("natalia_diseñografico") 
+    pagina.includes("disenografico") ||
+    pagina.includes("aldeasinfantiles_disenografico") ||
+    pagina.includes("sanen_disenografico") ||
+    pagina.includes("sanen_disenografico") ||
+    pagina.includes("natalia_disenografico") 
 ){
     document
-        .querySelector('.submenu a[href="diseñografico.html"]')
+        .querySelector('.submenu a[href="disenografico.html"]')
         .classList.add("active");
 }
 
 
 // Diseño web
-if (pagina.includes("diseñoweb")){
+if (pagina.includes("disenoweb")){
     document
-        .querySelector('.submenu a[href="diseñoweb.html"]')
+        .querySelector('.submenu a[href="disenoweb.html"]')
         .classList.add("active");
 }
 
