@@ -1134,7 +1134,7 @@ section.error404{
     background-color: var(--color-principal);
     font-family: var(--font-family-base);
     color: white;
-    text-align: left;
+    text-align: center;
     gap: 30px;
 }
 
@@ -1142,8 +1142,7 @@ section.error404{
 
 .titular-primero.error,
 .titular-tercero.error{
-    font-size: clamp(90px, 25vw, 180px);
-    text-align: left;
+    text-align: center;
     color: white;
 }
 
