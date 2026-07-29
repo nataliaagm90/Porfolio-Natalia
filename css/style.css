@@ -1140,7 +1140,8 @@ section.error404{
 
 
 
-.titular-primero.error{
+.titular-primero.error,
+.titular-tercero.error{
     font-size: clamp(90px, 25vw, 180px);
     text-align: left;
     color: white;
