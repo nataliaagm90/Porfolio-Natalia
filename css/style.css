@@ -1468,6 +1468,11 @@ video.aitana{
     font-size: 150px;
     margin-bottom: 0;
 }
+
+.titular-tercero.error{
+    margin-bottom: 14px;
+    font-size: 35px;
+}
 .info-error {
     display: flex;
     flex-direction: column;
