@@ -8,6 +8,7 @@ html,
 body{
     height:100%;
     margin:0;
+    padding: 0;
 }
 
 body{
@@ -421,13 +422,7 @@ hr{
     height:auto;
 }
 
-img.illustracion{
-    width: clamp(250px, 40vw, 500px);
-    height: auto;
-    max-width: 100%;
-    height: auto;
-   
-}
+
 
 .skills{
     margin-top: 60px;
