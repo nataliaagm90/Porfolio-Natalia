@@ -1124,6 +1124,7 @@ img.fnyh{
 /*---ERROR 404---*/
 
 section.error404{
+    padding: var(--padding-body);
     background-color: var(--color-principal);
     color: white;
     display: flex;
