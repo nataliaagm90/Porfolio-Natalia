@@ -1142,13 +1142,10 @@ section.error404{
     gap: 30px;
 }
 
-.error404{
-    padding-top: 300px;
-}
+
 
 .titular-primero.error{
-     font-size: var(--font-size-titulo);
-     margin: 0;
+font-size: 90px;     
 
 }
 
