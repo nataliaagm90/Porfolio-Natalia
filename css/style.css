@@ -1126,6 +1126,16 @@ img.fnyh{
 section.error404{
     background-color: var(--color-principal);
     color: white;
+    display: flex;
+}
+
+.info-error{
+    font-family: var(--font-family-base);
+
+}
+
+.imagen-error img{
+    width: 100%;
 }
 
 
