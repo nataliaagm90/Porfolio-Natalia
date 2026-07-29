@@ -1125,7 +1125,7 @@ img.fnyh{
 /*---ERROR 404---*/
 
 body.error{
-    display: none;
+    display: block;
 }
 
 section.error404{
