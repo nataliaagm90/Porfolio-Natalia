@@ -374,6 +374,29 @@ hr{
 
 /*HOME-ABOUT*/
 
+.home{
+    padding: var(--padding-body);
+}
+
+.contenedores{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.texto-principal.about{
+    margin: 0;
+    line-height: 1.8;
+    text-align: justify;
+}
+
 
 
 .imagen-about{
@@ -384,10 +407,15 @@ hr{
    
 }
 
+.imgane-home{
+    width:100%;
+    line-height:0;
+}
+
 .imgane-home img{
-    padding-bottom: 0;
-    width: 100%;
-    height: auto;
+    display:block;
+    width:100%;
+    height:auto;
 }
 
 img.illustracion{
