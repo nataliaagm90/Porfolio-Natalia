@@ -1124,7 +1124,11 @@ img.fnyh{
 
 /*---ERROR 404---*/
 
-body section.error404{
+body.error{
+    display: none;
+}
+
+section.error404{
     display: flex;
     flex-direction: column;
     justify-content: center;
