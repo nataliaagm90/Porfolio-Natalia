@@ -1128,10 +1128,12 @@ section.error404{
     background-color: var(--color-principal);
     color: white;
     display: flex;
+    justify-content: space-around;
 }
 
 .info-error{
     font-family: var(--font-family-base);
+    width: 100%;
 
 }
 
