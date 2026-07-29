@@ -1149,7 +1149,7 @@ section.error404{
     width: 100%;
 }
 
-.btn.secundario{
+a.error{
     color: var(--color-principal);
 }
 
