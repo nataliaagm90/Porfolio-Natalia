@@ -1130,6 +1130,7 @@ section.error404{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding-top: 100px;
     padding: var(--padding-body);
     background-color: var(--color-principal);
     font-family: var(--font-family-base);
@@ -1142,6 +1143,7 @@ section.error404{
 
 .titular-primero.error,
 .titular-tercero.error{
+    font-family: var(--font-family-base);
     text-align: center;
     color: white;
 }
