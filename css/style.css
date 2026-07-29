@@ -1151,10 +1151,6 @@ a.error{
 }
 
 
-.imagen-error{
-        order: -1;
-}
-
 .imagen-error img{
      width: 100%;
     max-width: 320px;
