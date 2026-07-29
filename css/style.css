@@ -1460,10 +1460,11 @@ video.aitana{
     height: auto;
     object-fit: contain;
 }
-.info-error{
-   
-   flex: 1;
-
+.info-error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }
 section.error404{
     padding: var(--padding-body);
