@@ -389,6 +389,7 @@ hr{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 50%;
 }
 
 .texto-principal.about{
