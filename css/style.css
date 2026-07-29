@@ -1164,6 +1164,7 @@ font-size: clamp(120px, 18vw, 180px);
 
 a.error{
     color: var(--color-principal);
+    font-weight: 200;
 }
 
 
@@ -1494,13 +1495,6 @@ section.error404{
     gap: clamp(30px, 6vw, 100px);
     min-height: 100vh;
 }
-
-
-
-
-
-
-
 
 
 }
