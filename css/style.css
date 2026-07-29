@@ -1134,7 +1134,7 @@ section.error404{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: var(--padding-body);
+    padding: 60px;
     background-color: var(--color-principal);
     font-family: var(--font-family-base);
     color: white;
