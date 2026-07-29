@@ -1141,6 +1141,10 @@ section.error404{
     width: 100%;
 }
 
+.btn.secundario{
+    color: var(--color-principal);
+}
+
 
 /*RESPOSIVE*/
 
