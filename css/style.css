@@ -1165,7 +1165,10 @@ font-size: clamp(120px, 18vw, 180px);
 
 a.error{
     color: var(--color-principal);
-    font-weight: 200;
+    font-weight: var(--font-weight-light);
+    &:hover{
+        font-weight: var(--font-weight-bold);
+    }
 }
 
 
