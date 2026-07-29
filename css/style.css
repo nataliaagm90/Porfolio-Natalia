@@ -1465,6 +1465,7 @@ section.error404{
     font-family: var(--font-family-base);
     color: white;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: clamp(30px, 6vw, 100px);
