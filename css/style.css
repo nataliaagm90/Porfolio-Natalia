@@ -1134,7 +1134,7 @@ section.error404{
 
 .titular-primero.error{
     font-family: var(--font-family-base);
-    font-size: 300px;
+    font-size: 200px;
     color: white;
     text-align: left;
 }
