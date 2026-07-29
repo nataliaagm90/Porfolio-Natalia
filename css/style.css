@@ -1142,14 +1142,17 @@ section.error404{
     padding-top: 300px;
 }
 
+.titular-primero.error{
+     font-size: var(--font-size-titulo);
 
+}
 
 .titular-primero.error,
 .titular-tercero.error{
     font-family: var(--font-family-base);
     text-align: center;
     color: white;
-    font-size: var(--font-size-titulo);
+   
 }
 
 a.error{
