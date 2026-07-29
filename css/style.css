@@ -1464,6 +1464,10 @@ video.aitana{
     height: auto;
     object-fit: contain;
 }
+.titular-primero.error{
+    font-size: 150px;
+    margin-bottom: 0;
+}
 .info-error {
     display: flex;
     flex-direction: column;
