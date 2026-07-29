@@ -1130,8 +1130,13 @@ section.error404{
     font-family: var(--font-family-base);
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(30px, 6vw, 100px);
+    min-height: 100vh;
 }
+
+
 
 .titular-primero.error{
     font-family: var(--font-family-base);
@@ -1142,12 +1147,21 @@ section.error404{
 
 .info-error{
    
-    width: 30%;
+   flex: 1;
 
 }
 
+.imagen-error{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .imagen-error img{
-    width: 100%;
+    width: clamp(280px, 40vw, 600px);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 a.error{
