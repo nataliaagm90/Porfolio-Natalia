@@ -1151,6 +1151,7 @@ font-size: clamp(120px, 18vw, 180px);
 
 .titular-tercero.error{
     font-size: clamp(24px, 3vw, 35px);
+    margin-bottom: 20px;
 
 }
 
