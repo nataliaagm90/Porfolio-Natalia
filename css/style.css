@@ -1133,6 +1133,7 @@ section.error404{
 }
 
 .titular-primero.error{
+    font-family: var(--font-family-base);
     font-size: 300px;
     color: white;
     text-align: left;
