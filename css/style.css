@@ -1126,6 +1126,7 @@ img.fnyh{
 section.error404{
     padding: var(--padding-body);
     background-color: var(--color-principal);
+    font-family: var(--font-family-base);
     color: white;
     display: flex;
     justify-content: space-around;
@@ -1138,7 +1139,7 @@ section.error404{
 }
 
 .info-error{
-    font-family: var(--font-family-base);
+   
     width: 30%;
 
 }
