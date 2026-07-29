@@ -376,6 +376,7 @@ hr{
 
 .home{
     padding: var(--padding-body);
+    margin: 0;
 }
 
 .contenedores{
@@ -408,6 +409,8 @@ hr{
 }
 
 .imgane-home{
+    margin: 0;
+    padding: 0;
     width:100%;
     line-height:0;
 }
