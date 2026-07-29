@@ -1149,6 +1149,11 @@ font-size: clamp(120px, 18vw, 180px);
 
 }
 
+.titular-tercero.error{
+    font-size: clamp(24px, 3vw, 35px);
+
+}
+
 .titular-primero.error,
 .titular-tercero.error{
     font-family: var(--font-family-base);
@@ -1465,13 +1470,11 @@ video.aitana{
     object-fit: contain;
 }
 .titular-primero.error{
-    font-size: 150px;
     margin-bottom: 0;
 }
 
 .titular-tercero.error{
     margin-bottom: 14px;
-    font-size: 35px;
 }
 .info-error {
     display: flex;
