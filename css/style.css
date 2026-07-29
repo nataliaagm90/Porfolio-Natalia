@@ -1144,6 +1144,7 @@ section.error404{
 
 .titular-primero.error{
      font-size: var(--font-size-titulo);
+     margin: 0;
 
 }
 
