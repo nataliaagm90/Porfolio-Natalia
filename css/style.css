@@ -1131,9 +1131,15 @@ section.error404{
     justify-content: space-around;
 }
 
+.titular-primero.error{
+    font-size: 300px;
+    color: white;
+    text-align: left;
+}
+
 .info-error{
     font-family: var(--font-family-base);
-    width: 100%;
+    width: 30%;
 
 }
 
