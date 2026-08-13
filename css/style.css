@@ -1284,11 +1284,15 @@ a.error{
     padding: 0px 100px;
 }
 .coleccion.diseño{
-    columns: 2;
-    display: block;
-    gap: 1;
-    flex-direction: none;
-    padding: 90px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.coleccion.diseño.card{
+    width: 330px;
+    margin: 0;
 }
 
 .coleccion {
