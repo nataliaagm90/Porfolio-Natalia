@@ -16,8 +16,8 @@ body{
     flex-direction: column;
 }
 
-section.container-proyectos{
-    flex:1;
+main{
+    flex: 1;
 }
 
 
