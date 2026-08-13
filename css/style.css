@@ -469,10 +469,11 @@ h3.title{
     min-height: 700px; /* o la altura que quieras */
     position: relative;
 
-     flex: 1 1 280px;
+     flex: none;
+     width: 85%;
     max-width: 400px;
 
-    margin: 0;
+    margin: 0 auto 30px auto;
 
     transition: .3s;
      &:hover{
@@ -1320,7 +1321,9 @@ a.error{
     margin: 0 0px 12px;
 }
 
-
+.container-proyectos{
+    padding: 0;
+}
 
 
 
