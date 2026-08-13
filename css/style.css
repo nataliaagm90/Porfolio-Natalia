@@ -1285,14 +1285,20 @@ a.error{
 }
 .coleccion.diseño{
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 60px;
+
+    width: 100%;
+    padding: 60px 40px;
+    margin: 0;
 }
 
 .coleccion.diseño.card{
-    width: 330px;
-    margin: 0;
+   width: 330px;
+   min-height: 480px;
+   margin: 0;
 }
 
 .coleccion {
