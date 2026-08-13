@@ -468,7 +468,7 @@ h3.title{
     align-items: center;       /* centra horizontalmente */
     text-align: center;
     padding: 2rem;
-    min-height: 700px; /* o la altura que quieras */
+    min-height: 550px; /* o la altura que quieras */
     position: relative;
 
      flex: none;
