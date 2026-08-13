@@ -17,9 +17,7 @@ body{
     min-height: 100vh;
 }
 
-main{
-    flex: 1;
-}
+
 
 
 
@@ -720,7 +718,7 @@ textarea{
     padding: 85px 25px 25px;
 
 
-    flex: 1;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1393,7 +1391,6 @@ a.error{
 
 .imagenes,
 .reto-aldeas{
-    flex:1;
     max-width: 650px;
 }
 
