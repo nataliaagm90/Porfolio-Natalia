@@ -16,7 +16,7 @@ body{
     flex-direction: column;
 }
 
-section{
+section.container-proyectos{
     flex:1;
 }
 
