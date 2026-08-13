@@ -13,9 +13,13 @@
     flex-shrink: 0;
 }
 
+.footer-info p,
+.footer-info a{
+    color: white;
+}
+
 #footer p,
 #footer a {
-    color: white;
     text-decoration: none;
     font-family: var(--font-family-base);
     font-size: clamp(0.88rem, 1vw, 0.98rem);
