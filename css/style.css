@@ -6,7 +6,7 @@
 
 html,
 body{
-    min-height:100vh;
+    min-height:100%;
     margin:0;
     padding: 0;
 }
@@ -14,6 +14,7 @@ body{
 body{
     display:flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 main{
@@ -1284,6 +1285,10 @@ a.error{
     gap: 1;
     flex-direction: none;
     padding: 90px 200px;
+}
+
+.card{
+    margin-left: 31px;
 }
 
 .card.aldeas, .card.movo, .card.sanen, .card.natalia{
