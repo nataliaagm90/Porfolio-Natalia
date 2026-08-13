@@ -1,18 +1,16 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-#footer{
-    background:var(--color-principal);
+#footer {
+    background: var(--color-principal);
     padding: 0;
     margin: 0;
     display: block;
     text-align: center;
     flex-shrink: 0;
-    margin-top: auto;
-    
 }
 
 #footer p,
@@ -23,38 +21,37 @@
     font-size: clamp(0.88rem, 1vw, 0.98rem);
     line-height: 1.65;
 }
- 
-.footer-contenido{
-    display:block;
-    justify-content: space-around;
+
+.footer-contenido {
+    display: block;
     width: 100%;
-    align-items: center;
     padding: 14px 0;
 }
 
-.footer-info{
+.footer-info {
     display: block;
     text-align: center;
 }
 
-.footer-politica a, .footer-redes a, .footer-info p{
+.footer-politica a,
+.footer-redes a,
+.footer-info p {
     padding-right: 17px;
     display: block;
 }
 
-
-
-.footer-politica{
+.footer-politica {
     display: block;
     justify-content: center;
     gap: 30px;
 }
 
-.footer-politica a{
+.footer-politica a {
     text-decoration: none;
     color: white;
     transition: color .3s ease;
-    &:hover{
+
+    &:hover {
         color: gray;
     }
 }
