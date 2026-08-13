@@ -1026,6 +1026,17 @@ img.naat{
 
 /* FNYH - VIDEOS*/
 
+.video-youtube {
+    width: min(100%, 700px);
+    margin: 0 auto;
+}
+
+.video-youtube video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 img.fnyh{
   background-color: #050879;
 }
