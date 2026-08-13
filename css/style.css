@@ -1229,6 +1229,10 @@ a.error{
 /*RESPOSIVE*/
 
 @media (min-width:1025px){
+
+    .home{
+        margin: 40px;
+    }
     .contenedores{
         display: flex;
         flex-direction: row;
