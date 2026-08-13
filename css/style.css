@@ -484,7 +484,7 @@ h3.title{
 }
 
 .card.item1{
-    background-image: url(../img/img/proyectos/disenografico_portada.jpg);
+    background-image: url(../img/portada/proyectos/disenografico_portada.jpg);
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
@@ -498,14 +498,14 @@ h3.title{
 }
 
 .card.item3{
-    background-image: url(../img/img/proyectos/videos_portadas.jpg);
+    background-image: url(../img/portada/proyectos/videos_portadas.jpg);
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 }
 
 .card.item4{
-    background-image: url(../img/img/proyectos/programcion_portada.jpg);
+    background-image: url(../img/portada/proyectos/programcion_portada.jpg);
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
