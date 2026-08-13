@@ -91,6 +91,10 @@
 
 }
 
+.modal-contenido p{
+    color: black;
+}
+
 .cerrar{
 
     position:absolute;
@@ -112,9 +116,7 @@
 
 }
 
-#texto-modal p{
-    color: black;
-}
+
 
 #titulo-modal{
     color: var(--color-principal);
