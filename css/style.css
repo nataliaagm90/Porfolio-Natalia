@@ -723,7 +723,7 @@ textarea{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:2rem;
+    gap:0rem;
     flex-wrap:wrap;
     margin-top:8rem;
 }
