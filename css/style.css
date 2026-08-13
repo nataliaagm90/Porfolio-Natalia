@@ -1272,23 +1272,26 @@ a.error{
     text-align: center;
     padding: 0px 100px;
 }
-.coleccion.diseño{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
 
-    width: 100%;
-    padding: 60px 40px;
-    margin: 0;
-}
+    .container-proyectos {
+        flex: 1;
+        width: 100%;
+    }
 
-.coleccion.diseño.card{
-   width: 330px;
-   min-height: 480px;
-   margin: 0;
-}
+    .coleccion.diseño {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        padding: 60px 40px;
+    }
+
+    .card {
+        width: 330px;
+        margin: 0;
+    }
+
+
 
 .coleccion {
     display: flex;
@@ -1298,9 +1301,7 @@ a.error{
     margin: 2rem 0px;
 }
 
-.card{
-    margin: 0;
-}
+
 
 .card.aldeas, .card.movo, .card.sanen, .card.natalia{
    margin-top: 0;
@@ -1345,13 +1346,6 @@ a.error{
     margin: 0 0px 12px;
 }
 
-.container-proyectos {
-    background-color: var(--blue);
-    width: 100%;
-    max-width: 100%;
-    margin: 20px 0 0;
-    padding: 75px 40px 20px;
-}
 
 
 .proyecto{
