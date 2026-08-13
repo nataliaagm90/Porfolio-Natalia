@@ -187,6 +187,10 @@ hr{
     color: white;
     text-align: center;
 }
+
+.info.principal.sanen{
+    background-color: var(--color-sanen);
+}
 .home, #proyectos, .info-contacto, .formulario, .info.principal, .coleccion.diseño{
     padding: var(--padding-body);
 }
