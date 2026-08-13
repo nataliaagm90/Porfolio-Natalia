@@ -101,7 +101,7 @@
     top:15px;
 
     font-size:35px;
-    color: white;
+    color: var(--color-principal);
     cursor:pointer;
 
 }
@@ -115,7 +115,7 @@
 }
 
 #titulo-modal{
-    color: white;
+    color: var(--color-principal);
     font-family: var(--font-family-base);
     font-size: var(--font-size-h2);
 }
