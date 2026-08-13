@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 html,
 body{
     min-height:100%;
@@ -1332,13 +1334,12 @@ a.error{
     margin: 0 0px 12px;
 }
 
-.container-proyectos{
+.container-proyectos {
     background-color: var(--blue);
+    width: 100%;
     max-width: 100%;
     margin: 0;
-    flex-wrap: wrap;
     padding: 75px 40px 20px;
-
 }
 
 
