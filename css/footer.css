@@ -81,7 +81,7 @@
     width: 60%;
     max-width: 100%;
 
-    background:var(--color-principal);
+    background:white;
 
     padding:40px;
 
@@ -110,6 +110,10 @@
 
     line-height:1.8;
 
+}
+
+p#texto-modal{
+    color: black;
 }
 
 #titulo-modal{
