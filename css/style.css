@@ -5,12 +5,18 @@
 }
 
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
 
-
-
-
-
-
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
 
 hr{
@@ -445,8 +451,9 @@ hr{
 
 }
 
-.container-proyectos{
-    padding: 0;
+.container-proyectos {
+    flex: 1;
+    width: 100%;
 }
 
 h3.title{
@@ -1273,10 +1280,30 @@ a.error{
     padding: 0px 100px;
 }
 
-    .container-proyectos {
+.container-proyectos {
         flex: 1;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+
+    .proyectos-diseño {
+        width: 100%;
+    }
+
+    .empresas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .logos {
+        margin: 0;
+    }
+
+   
 
     .coleccion.diseño {
         display: flex;
