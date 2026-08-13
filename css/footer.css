@@ -122,27 +122,47 @@ p#texto-modal{
     font-size: var(--font-size-h2);
 }
 
+@media (min-width: 1025px) {
 
-@media (min-width:1025px){
-    .footer-contenido{
-    display: flex;
-    
-}
+    .footer-contenido {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        width: 100%;
+        padding: 14px 30px;
+    }
 
-.footer-info{
-    display: flex;
-}
+    .footer-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+    }
 
-.footer-politica{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
+    .footer-redes {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+    }
 
-.footer-redes{
-    display: flex;
-}
+    .footer-politica {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
 
+    .footer-politica a,
+    .footer-redes a,
+    .footer-info p {
+        padding-right: 0;
+        margin: 0;
+    }
 }
 
 
