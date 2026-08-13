@@ -746,7 +746,7 @@ textarea{
 .logos img {
     width: 92%;
     height: auto;
-    aspect-ratio: 2 / 4;
+    aspect-ratio: 3 / 4;
     object-fit: contain;
     transition: transform .35s ease, box-shadow .35s ease;
     cursor: pointer;
@@ -1390,6 +1390,22 @@ a.error{
 
 .proyecto.reverse{
     flex-direction: row-reverse;
+}
+
+.logos img {
+    width: 92%;
+    height: auto;
+    aspect-ratio: 2 / 4;
+    object-fit: contain;
+    transition: transform .35s ease, box-shadow .35s ease;
+    cursor: pointer;
+    padding: 40px;
+    &:hover{
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,.15);
+        
+
+    }
 }
 
 .titular-secundario.aldeas.white,.texto-principal.aldeas.white {
