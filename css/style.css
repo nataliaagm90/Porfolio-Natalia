@@ -451,6 +451,10 @@ hr{
 
 }
 
+.container-proyectos{
+    padding: 0;
+}
+
 h3.title{
     color: var(--white);
     text-align: center;
@@ -1322,10 +1326,13 @@ a.error{
 }
 
 .container-proyectos{
-    padding: 0;
+    background-color: var(--blue);
+    max-width: 100%;
+    margin: 0;
+    flex-wrap: wrap;
+    padding: 75px 40px 20px;
+
 }
-
-
 
 
 .proyecto{
