@@ -378,13 +378,17 @@ hr{
 
 /*HOME-ABOUT*/
 
+.container-proyectos.home{
+    padding: 0;
+}
+
 .home{
     padding: var(--padding-body);
     margin: 0;
 }
 
 .contenedores{
-    display: grid;
+    display: block;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: stretch;
