@@ -448,12 +448,9 @@ hr{
     margin: 0;
     flex-wrap: wrap;
     padding: 75px 40px 20px;
-
-}
-
-.container-proyectos {
     flex: 1;
     width: 100%;
+
 }
 
 h3.title{
