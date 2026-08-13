@@ -1287,8 +1287,16 @@ a.error{
     padding: 90px 200px;
 }
 
+.coleccion {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 2rem 0px;
+}
+
 .card{
-    margin-left: 31px;
+    margin: 0;
 }
 
 .card.aldeas, .card.movo, .card.sanen, .card.natalia{
