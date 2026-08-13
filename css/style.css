@@ -475,7 +475,7 @@ h3.title{
      width: 85%;
     max-width: 400px;
 
-    margin: 0 auto 30px auto;
+    margin: 0 auto 3px auto;
 
     transition: .3s;
      &:hover{
