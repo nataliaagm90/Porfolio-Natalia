@@ -1619,5 +1619,9 @@ section.error404{
         height: auto;
     }
 
+    .card.item1 {
+    margin-top: 4rem;
+    }
+
 
 }
