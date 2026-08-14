@@ -280,6 +280,48 @@ rechazar.addEventListener("click", ()=>{
 
 });
 
+function iniciarAnalytics() {
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'G-MFT8B532JQ');
+}
+
+const decision = localStorage.getItem("cookies");
+
+if (decision === "aceptadas") {
+    iniciarAnalytics();
+}
+
+aceptar.addEventListener("click", ()=>{
+
+    localStorage.setItem("cookies","aceptadas");
+
+    iniciarAnalytics();
+
+    banner.style.display = "none";
+
+    window.location.href = "home.html";
+
+});
+
+rechazar.addEventListener("click", ()=>{
+
+    localStorage.setItem("cookies","rechazadas");
+
+    banner.style.display = "none";
+
+    window.location.href = "home.html";
+
+});
+
 
 
 
