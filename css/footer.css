@@ -60,6 +60,10 @@
     }
 }
 
+.footer-redes a{
+    color: white;
+}
+
 
 .modal{
     display: none;
