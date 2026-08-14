@@ -302,7 +302,7 @@ hr{
     bottom: 20px;
     right: 20px;
 
-    width: 420px;
+    width: 90%;
 
     background: white;
 
@@ -336,7 +336,7 @@ hr{
     line-height: 1.6;
 
     margin-bottom: 20px;
-    font-family: var(--font-family-base);
+    font-family: var(--font-size-small);
 }
 
 .cookie-botones{
@@ -344,6 +344,10 @@ hr{
     display:flex;
     justify-content: flex-start;
     gap:15px;
+}
+
+.cookie-botones .btn{
+    margin-bottom: 0;
 }
 
 .btn-secundario{
@@ -1620,6 +1624,10 @@ section.error404{
     .card.item1 {
     margin-top: 0;
     }
+
+    .cookie-banner{
+    width: 30%;
+}
 
 
 }
