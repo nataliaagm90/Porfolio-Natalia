@@ -1603,5 +1603,23 @@ section.error404{
     min-height: 100vh;
 }
 
+  .imgane-home {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .imgane-home picture {
+        display: block;
+        width: 100%;
+    }
+
+    .imgane-home img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
 
 }
