@@ -1028,6 +1028,54 @@ section{
 }
 
 
+/* --- ERROR 4040---*/
+
+
+/* LUPA DE TEXTO - ERROR 404 */
+
+.texto-lupa {
+    position: relative;
+    display: grid;
+    width: 100%;
+}
+
+.texto-original,
+.texto-revelado {
+    grid-area: 1 / 1;
+    text-align: center;
+}
+
+.texto-original {
+    color: var(--color-principal);
+}
+
+.texto-revelado {
+    color: #222;
+    clip-path: circle(0 at 50% 50%);
+    pointer-events: none;
+}
+
+.texto-revelado h1 {
+    font-weight: 800;
+    text-shadow: 2px 2px 0 #12B2B4;
+}
+
+.texto-revelado b {
+    color: #12B2B4;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .texto-lupa {
+        cursor: none;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .texto-revelado {
+        display: none;
+    }
+}
+
 /*RESPOSIVE*/
 
 @media (min-width: 1025px) and (max-width: 1439px) {
