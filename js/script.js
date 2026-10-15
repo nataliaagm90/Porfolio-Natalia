@@ -168,42 +168,49 @@ function initCookieButtons() {
             window.requestAnimationFrame(() => document.body.classList.add('home-lista'));
         }
     }
-
+  
     function initCursorSeguimiento() {
+        // Activar únicamente en dispositivos con ratón
+        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            return;
+        }
 
-    // Solo activar en dispositivos con ratón
-    if (!window.matchMedia(
-        '(hover: hover) and (pointer: fine)'
-    ).matches) {
-        return;
+        // Evitar crear el cursor más de una vez
+        if (document.querySelector('.cursor-seguimiento')) {
+            return;
+        }
+
+        const tarjetas = document.querySelectorAll('.galeria-imagenes .tarjeta');
+
+        if (!tarjetas.length) {
+            return;
+        }
+
+        // Crear el cursor circular de las páginas individuales
+        const cursor = document.createElement('div');
+        cursor.className = 'cursor-seguimiento';
+        cursor.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(cursor);
+
+        // Seguir el ratón
+        document.addEventListener('mousemove', function (event) {
+            cursor.style.left = `${event.clientX}px`;
+            cursor.style.top = `${event.clientY}px`;
+        });
+
+        // Mostrar y ocultar el cursor en cada imagen
+        tarjetas.forEach(function (tarjeta) {
+            tarjeta.addEventListener('mouseenter', function () {
+                cursor.classList.add('activo');
+            });
+
+            tarjeta.addEventListener('mouseleave', function () {
+                cursor.classList.remove('activo');
+            });
+        });
     }
 
-    // Crear el cursor personalizado
-    const cursor = document.createElement('div');
-    cursor.className = 'cursor-seguimiento';
-    document.body.appendChild(cursor);
 
-    // Seguir el movimiento del ratón
-    document.addEventListener('mousemove', function (event) {
-        cursor.style.left = `${event.clientX}px`;
-        cursor.style.top = `${event.clientY}px`;
-    });
-
-    // Mostrar y ocultar el cursor sobre las imágenes
-    document.querySelectorAll(
-        '.galeria-imagenes .tarjeta'
-    ).forEach(function (tarjeta) {
-
-        tarjeta.addEventListener('mouseenter', function () {
-            cursor.classList.add('activo');
-        });
-
-        tarjeta.addEventListener('mouseleave', function () {
-            cursor.classList.remove('activo');
-        });
-
-    });
-}
 
     function initPortfolio() {
         const page = getCurrentPage();
