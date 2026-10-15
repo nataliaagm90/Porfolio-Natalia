@@ -212,32 +212,31 @@ function initCookieButtons() {
 
 
     function initLupa404() {
-        const contenedores = document.querySelectorAll('.texto-lupa');
+        const contenedor = document.querySelector('.texto-lupa');
+        if (!contenedor) return;
 
-        contenedores.forEach(contenedor => {
-            const revelado = contenedor.querySelector('.texto-revelado');
+        const revelado = contenedor.querySelector('.texto-revelado');
+        if (!revelado) return;
 
-            if (!revelado) return;
+        const tieneRaton = window.matchMedia(
+            '(hover: hover) and (pointer: fine)'
+        ).matches;
 
-            // Activar el efecto únicamente con ratón
-            if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-                return;
-            }
+        if (!tieneRaton) return;
 
-            contenedor.addEventListener('pointermove', event => {
-                if (event.pointerType !== 'mouse') return;
+        contenedor.addEventListener('pointermove', function (event) {
+            if (event.pointerType !== 'mouse') return;
 
-                const rect = contenedor.getBoundingClientRect();
-                const x = event.clientX - rect.left;
-                const y = event.clientY - rect.top;
+            const rect = contenedor.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
 
-                revelado.style.clipPath =
-                    `circle(75px at ${x}px ${y}px)`;
-            });
+            revelado.style.clipPath =
+                `circle(85px at ${x}px ${y}px)`;
+        });
 
-            contenedor.addEventListener('pointerleave', () => {
-                revelado.style.clipPath = 'circle(0 at 50% 50%)';
-            });
+        contenedor.addEventListener('pointerleave', function () {
+            revelado.style.clipPath = 'circle(0 at 0 0)';
         });
     }
 
