@@ -1034,7 +1034,6 @@ section{
 
 /* --- ERROR 4040---*/
 
-
 /* LUPA DE TEXTO - ERROR 404 */
 
 .texto-lupa {
@@ -1047,13 +1046,18 @@ section{
 .texto-revelado {
     grid-area: 1 / 1;
     text-align: center;
+    margin: 0;
 }
 
 .texto-original {
+    position: relative;
+    z-index: 1;
     color: var(--color-principal);
 }
 
 .texto-revelado {
+    position: relative;
+    z-index: 2;
     color: #222;
     clip-path: circle(0 at 50% 50%);
     pointer-events: none;
@@ -1077,6 +1081,10 @@ section{
 @media (hover: none), (pointer: coarse) {
     .texto-revelado {
         display: none;
+    }
+
+    .texto-lupa {
+        cursor: auto;
     }
 }
 
