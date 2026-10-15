@@ -973,9 +973,28 @@ section{
     text-align: center;
     box-sizing: border-box;
 
-    /* Animación de entrada de todo el contenido */
+}
+
+.contenido-contacto {
     clip-path: inset(0 50% 0 50%);
     animation: revelarContacto 0.9s ease-out forwards;
+}
+
+@keyframes revelarContacto {
+    from {
+        clip-path: inset(0 50% 0 50%);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contenido-contacto {
+        animation: none;
+        clip-path: none;
+    }
 }
 
 .contenido .parrafos {
