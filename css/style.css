@@ -1088,7 +1088,7 @@ backdrop-filter: blur(1px);
 position: relative;
 display: grid;
 width: 100%;
-font-weight: 300;
+font-weight: 100;
 }
 
 .texto-lupa .texto-original,
@@ -1097,7 +1097,7 @@ grid-area: 1 / 1;
 width: 100%;
 margin: 0;
 text-align: center;
-font-size: 300;
+font-size: 100;
 }
 
 .texto-lupa .texto-original {
