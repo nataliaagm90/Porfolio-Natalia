@@ -951,11 +951,12 @@ section{
     }
 }
 
-/* CONTACTO - FORMULARIO*/
+
+/* CONTACTO - FORMULARIO */
 
 /* PÁGINA CONTACTO */
 
-.contacto{
+.contacto {
     color: var(--color-principal);
 }
 
@@ -967,6 +968,10 @@ section{
     align-items: center;
     text-align: center;
     box-sizing: border-box;
+
+    /* Animación de entrada de todo el contenido */
+    clip-path: inset(0 50% 0 50%);
+    animation: revelarContacto 0.9s ease-out forwards;
 }
 
 .contenido .parrafos {
@@ -996,15 +1001,12 @@ section{
     gap: 15px;
 }
 
-.titular-primero.contacto{
+.titular-primero.contacto {
     font-size: clamp(43px, 4vw, 150px);
     margin-bottom: 20px;
 }
 
-.titular-primero.contacto {
-    clip-path: inset(0 50% 0 50%);
-    animation: revelarContacto 0.9s ease-out forwards;
-}
+/* ANIMACIÓN DE REVELADO */
 
 @keyframes revelarContacto {
     from {
@@ -1016,13 +1018,15 @@ section{
     }
 }
 
-/* Accesibilidad: reducir movimiento */
+/* ACCESIBILIDAD: REDUCIR MOVIMIENTO */
+
 @media (prefers-reduced-motion: reduce) {
-    .titular-primero.contacto {
+    .contenido {
         animation: none;
         clip-path: none;
     }
 }
+
 
 /*RESPOSIVE*/
 
