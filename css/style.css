@@ -958,25 +958,37 @@ section{
 
 /* CONTACTO - FORMULARIO */
 
-/* PÁGINA CONTACTO */
+/* TÍTULO CONTACTO */
 
 .contacto {
     color: var(--color-principal);
     display: inline-block;
-    transition: transform 0.3s ease;
+    font-weight: 300;
+    transform: scale(1);
+    transform-origin: center;
+    transition:
+        transform 0.4s ease,
+        font-weight 0.3s ease;
 }
+
+/* ZOOM + BOLD AL PASAR EL CURSOR */
 
 @media (hover: hover) and (pointer: fine) {
-.contacto {
-transform: scale(1.06);
-}
+    .contacto:hover {
+        transform: scale(1.06);
+        font-weight: 700;
+    }
 }
 
+/* ACCESIBILIDAD */
+
 @media (prefers-reduced-motion: reduce) {
-.contacto {
-transition: none;
+    .contacto {
+        transition: none;
+    }
 }
-}
+
+/* CONTENIDO DE CONTACTO */
 
 .contenido {
     min-height: calc(125vh - 80px);
@@ -986,8 +998,9 @@ transition: none;
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-
 }
+
+/* ANIMACIÓN DE REVELADO */
 
 .contenido-contacto {
     clip-path: inset(0 50% 0 50%);
@@ -1004,12 +1017,16 @@ transition: none;
     }
 }
 
+/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+
 @media (prefers-reduced-motion: reduce) {
     .contenido-contacto {
         animation: none;
         clip-path: none;
     }
 }
+
+/* DISTRIBUCIÓN DEL CONTENIDO */
 
 .contenido .parrafos {
     display: flex;
@@ -1038,32 +1055,12 @@ transition: none;
     gap: 15px;
 }
 
+/* TAMAÑO DEL TITULAR */
+
 .titular-primero.contacto {
     font-size: clamp(43px, 4vw, 150px);
     margin-bottom: 20px;
 }
-
-/* ANIMACIÓN DE REVELADO */
-
-@keyframes revelarContacto {
-    from {
-        clip-path: inset(0 50% 0 50%);
-    }
-
-    to {
-        clip-path: inset(0 0 0 0);
-    }
-}
-
-/* ACCESIBILIDAD: REDUCIR MOVIMIENTO */
-
-@media (prefers-reduced-motion: reduce) {
-    .contenido {
-        animation: none;
-        clip-path: none;
-    }
-}
-
 
 /* --- ERROR 404 --- */
 
