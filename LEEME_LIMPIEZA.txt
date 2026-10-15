@@ -1,0 +1,16 @@
+LIMPIEZA INICIAL DEL PORTFOLIO
+=============================
+
+Esta copia conserva la estructura y los recursos de la web original.
+
+Cambios realizados:
+- Eliminados archivos auxiliares de macOS (__MACOSX, .DS_Store y archivos ._*).
+- Normalizados espacios finales y líneas en blanco excesivas de HTML, CSS y JavaScript.
+- Corregida una ruta de imagen rota en aitana.html y renombrado el recurso asociado a un nombre legible.
+- Comprobadas las referencias locales a recursos en HTML/CSS: no quedan rutas locales rotas en esta revisión estática.
+
+Importante:
+Esta es una limpieza conservadora. No se han eliminado selectores CSS o funciones JavaScript solo porque parezcan no usarse: podrían intervenir en animaciones, estados responsive o contenido cargado dinámicamente. Para una limpieza más profunda manteniendo el diseño, conviene revisar esos elementos con pruebas visuales en las páginas y tamaños de pantalla correspondientes.
+
+Recomendación:
+Guarda una copia del sitio original y prueba esta versión en un entorno local antes de publicarla.

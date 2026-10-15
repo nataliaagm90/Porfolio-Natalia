@@ -1,218 +1,135 @@
-* {
+#footer{
     padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-#footer {
-    background: var(--color-principal);
-    padding: 0;
-    margin: 0;
     display: block;
+    line-height: 30px;
     text-align: center;
-    flex-shrink: 0;
+    margin: 24px 0;
+    padding-bottom: 24px;
+
 }
 
-.footer-info p,
-.footer-info a{
-    color: white;
-}
-
-#footer p,
-#footer a {
+.footer-contenido p,
+.footer-contenido a{
+    color: var(--color-principal);
     text-decoration: none;
     font-family: var(--font-family-base);
     font-size: clamp(0.88rem, 1vw, 0.98rem);
     line-height: 1.65;
 }
 
-.footer-contenido {
-    display: block;
-    width: 100%;
-    padding: 14px 0;
+.footer-contenido{
+    width: 94%;
+    max-width: 2000px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    gap: 20px;
 }
 
-.footer-info {
+.footer-info{
     display: block;
     text-align: center;
 }
 
-.footer-politica a,
-.footer-redes a,
-.footer-info p {
-    padding-right: 17px;
+.footer-politica a, .footer-redes a, .footer-info p{
     display: block;
 }
 
-.footer-politica {
+.footer-politica{
     display: block;
     justify-content: center;
     gap: 30px;
+    margin-top: -14px;
 }
 
-.footer-politica a {
+.footer-politica a{
     text-decoration: none;
-    color: white;
+    color: var(--color-principal);
     transition: color .3s ease;
-
-    &:hover {
-        color: gray;
-    }
 }
 
-.footer-redes a{
-    color: white;
+.footer-politica a:hover {
+    color: gray;
 }
-
 
 .modal{
-    display: none;
-    position: fixed;
-    inset: 0;
+    display:none;
 
-    width: 100%;
-    height: 100%;
+    position:fixed;
 
-    background: rgba(0,0,0,.6);
+    top:0;
+    left:0;
 
-    justify-content: center;
-    align-items: flex-start;
+    width:100%;
+    height:100%;
 
-    z-index: 9999;
+    background:rgba(0,0,0,.6);
 
-    overflow-y: auto;
-    padding: 15px;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
 }
 
 .modal-contenido{
 
-    width: 100%;
+    width: 60%;
     max-width: 100%;
 
-    background: white;
+    background:var(--color-principal);
 
-    padding: 30px 20px;
+    padding:40px;
 
-    border-radius: 15px;
+    border-radius:15px;
 
-    position: relative;
+    position:relative;
 
-    max-height: 90vh;
-    overflow-y: auto;
-
-    margin: 20px 0;
 }
 
-#modal-contenido p{
-    color: black;
+.cerrar{
+
+    position:absolute;
+
+    right:20px;
+    top:15px;
+
+    font-size:35px;
+    color: white;
+    cursor:pointer;
+
 }
 
-.cerrar {
-    position: absolute;
+#texto-modal{
 
-    right: 15px;
-    top: 10px;
+    margin-top:20px;
 
-    font-size: 30px;
-    color: var(--color-principal);
+    line-height:1.8;
 
-    cursor: pointer;
 }
 
-#texto-modal {
-    margin-top: 20px;
-
-    line-height: 1.6;
-    font-size: 14px;
-}
-
-#titulo-modal {
-    color: var(--color-principal);
+#titulo-modal{
+    color: white;
     font-family: var(--font-family-base);
-    font-size: 24px;
-    
+    font-size: var(--font-size-h2);
 }
 
-@media (min-width: 1025px) {
-    #footer {
-        flex-shrink: 0;
-        margin-top: 0;
-    }
+/* MÓVIL Y TABLET */
+@media (min-width:1025px) {
 
     .footer-contenido {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .footer-politica{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 25px;
-        width: 100%;
-        padding: 14px 30px;
-    }
-
-    .footer-info {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 25px;
-        flex-wrap: wrap;
-    }
-
-    .footer-redes {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 25px;
-    }
-
-    .footer-politica {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-
-    .footer-politica a,
-    .footer-redes a,
-    .footer-info p {
-        padding-right: 0;
-        margin: 0;
-    }
-
-      .modal {
-        align-items: center;
-        padding: 20px;
-    }
-
-    .modal-contenido {
-        width: 55%;
-        max-width: 900px;
-        padding: 40px;
-        max-height: 73vh;
-        overflow-y: auto;
-        margin: 0px;
-    
-    }
-
-    .cerrar {
-        right: 20px;
-        top: 15px;
-
-        font-size: 35px;
-    }
-
-    #texto-modal {
-        margin-top: 20px;
-        line-height: 1.8;
-        font-size: inherit;
-    }
-
-    #titulo-modal {
-        font-size: var(--font-size-h2);
-        padding-right: 0;
-    }
+        flex-direction: row;
+        gap: 20px;
 }
 
-
-
-
+}

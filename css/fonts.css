@@ -1,49 +1,77 @@
+/* JURA */
+
 @font-face {
     font-family: 'Jura';
-    src: url('../fuentes/Jura-Light.woff2') format('woff2'),
-    url('../fuentes/Jura-Light.woff') format('woff');
+    src: url('../fuentes/Jura-Light.woff2') format('woff2');
     font-weight: 300;
-    font-style: 'italic';
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Jura';
-    src: url('../fuentes/Jura-Regular.woff2') format('woff2'),
-    url('../fuentes/Jura-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: 'normal';
-}
-
-@font-face {
-    font-family: 'Jura';
-    src: url('fuentes/Jura-medium.woff2') format('woff2');
-    src: url('fuentes/Jura-medium.woff') format('woff');
-    font-weight: 500;
-    font-style: 'Medium';
-}
-
-
-@font-face {
-    font-family: 'Jura';
-    src: url('fuentes/Jura-SemiBold.woff2') format('woff2');
-    src: url('fuentes/Jura-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: 'SemiBold';
-}
-
-@font-face {
-    font-family: 'Jura';
-    src: url('../fuentes/Jura-Bold.woff2') format('woff2'),
-    url('../fuentes/Jura-Bold.woff') format('woff');
-    font-weight: 700;
-    font-style: 'Bold';
-}
-
-
-@font-face {
-    font-family: 'KaushanScript';
-    src: url('../fuentes/KaushanScript-Regular.woff2') format('woff2'),
-         url('../fuentes/KaushanScript-Regular.woff') format('woff');
+    src: url('../fuentes/Jura-Regular.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jura';
+    src: url('../fuentes/Jura-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jura';
+    src: url('../fuentes/Jura-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jura';
+    src: url('../fuentes/Jura-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* BIRTHSTONE */
+
+@font-face {
+    font-family: 'Birthstone';
+    src: url('../fuentes/Birthstone-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* DARKER GROTESQUE */
+
+@font-face {
+    font-family: 'DarkerGrotesque';
+    src: url('../fuentes/DarkerGrotesque-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DarkerGrotesque';
+    src: url('../fuentes/DarkerGrotesque-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DarkerGrotesque';
+    src: url('../fuentes/DarkerGrotesque-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }

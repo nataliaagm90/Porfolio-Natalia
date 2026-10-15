@@ -1,0 +1,14 @@
+PORTFOLIO NATALIA — VERSION LIMPIADA
+
+Esta versión conserva las páginas y recursos del portfolio y aplica una limpieza conservadora al código compartido.
+
+Cambios principales:
+- JavaScript reorganizado en funciones pequeñas para menú, footer, animaciones, cursor, loader y cookies. Se conservan las animaciones y tiempos del loader; el menú también se puede cerrar con Escape o al seleccionar un enlace.
+- CSS con menos reglas duplicadas y sin resets globales repetidos en hojas secundarias.
+- Reglas hover anidadas convertidas a selectores CSS estándar para ampliar compatibilidad.
+- Eliminada una regla de vídeo completamente sobrescrita por otra y declaraciones duplicadas que no tenían efecto.
+- Se mantienen las páginas, tipografías, imágenes, SVG y vídeos.
+
+IMPORTANTE:
+La limpieza estática no sustituye una prueba visual en navegador. Antes de publicar, comprueba index.html, home.html, proyectos.html y páginas de proyectos en ordenador y móvil, además del consentimiento de cookies, menú, enlaces y vídeos.
+Abre el sitio mediante un servidor local o el mismo entorno de alojamiento; fetch() de menu.html y footer.html puede no funcionar abriendo los HTML directamente como archivos locales.

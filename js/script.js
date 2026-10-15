@@ -1,331 +1,233 @@
-fetch('menu.html')
-  .then(response => response.text())
-  .then(data => {
-
-    // Cargar el menú en el div
-    document.getElementById('menu').innerHTML = data;
-
-    // Página actual
-const pagina = decodeURIComponent(window.location.pathname).toLowerCase();
-
-document.querySelectorAll(".nav-link").forEach(link => {
-
-    const href = link.getAttribute("href");
-
-    // SOBRE MÍ
-    if (
-        href === "home.html" &&
-        pagina.includes("home")
-    ) {
-        link.classList.add("active");
-    }
-
-    // PROYECTOS
-
-   
-
-   
-  // PROYECTOS
-if (
-    pagina.includes("proyectos") ||
-
-    pagina.includes("disenografico") ||
-    pagina.includes("aldeasinfantiles_disenografico") ||
-    pagina.includes("sanen_disenografico") ||
-    pagina.includes("sanen_disenografico") ||
-    pagina.includes("natalia_disenografico") ||
-
-    pagina.includes("disenoweb") ||
-
-    pagina.includes("videos") ||
-    pagina.includes("aldeasinfantiles_video") ||
-    pagina.includes("sanen_video") ||
-    pagina.includes("fundacionnaturalezahombre_video") ||
-
-    pagina.includes("programacion")
-){
-    document
-        .querySelector('.nav-link[href="proyectos.html"]')
-        .classList.add("active");
-}
-
-// DISEÑO GRAFICO
-
-if (
-
-    pagina.includes("disenografico") ||
-    pagina.includes("aldeasinfantiles_disenografico") ||
-    pagina.includes("sanen_disenografico") ||
-    pagina.includes("sanen_disenografico") ||
-    pagina.includes("natalia_disenografico") 
-){
-    document
-        .querySelector('.submenu a[href="disenografico.html"]')
-        .classList.add("active");
-}
-
-
-// Diseño web
-if (pagina.includes("disenoweb")){
-    document
-        .querySelector('.submenu a[href="disenoweb.html"]')
-        .classList.add("active");
-}
-
-// Vídeos
-if (
-    pagina.includes("videos") ||
-    pagina.includes("aldeasinfantiles_video") ||
-    pagina.includes("sanen_video") ||
-    pagina.includes("fundacionnaturalezahombre_video")
-){
-    document
-        .querySelector('.submenu a[href="videos.html"]')
-        .classList.add("active");
-}
-
-// Programación
-if (pagina.includes("programacion")){
-    document
-        .querySelector('.submenu a[href="programacion.html"]')
-        .classList.add("active");
-}
-
-    // BLOG
-    if (
-        href === "blog.html" &&
-        pagina.includes("blog")
-    ) {
-        link.classList.add("active");
-    }
-
-    // CONTACTO
-    if (
-        href === "contacto.html" &&
-        pagina.includes("contacto")
-    ) {
-        link.classList.add("active");
-    }
-
-});
-
-
-const hamburguer = document.querySelector('.hamburguer');
-const navMenu = document.querySelector('.nav-menu');
-
-
-hamburguer.addEventListener('click', () => {
-    hamburguer.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-  });
-
-
-fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-
-        document.getElementById("footer").innerHTML = data;
-
-        // Modal
-        const modal = document.getElementById("modal");
-        const titulo = document.getElementById("titulo-modal");
-        const texto = document.getElementById("texto-modal");
-        const cerrar = document.querySelector(".cerrar");
-
-        document.getElementById("aviso").addEventListener("click", function(e){
-            e.preventDefault();
-
-            titulo.textContent = "AVISO LEGAL";
-            texto.innerHTML = `
-            
-            <p>Este sitio web es propiedad de <strong>Natalia Giménez</strong>, diseñado con la finalidad de mostrar su portfolio profesional de diseño gráfico, diseño web, programación y proyectos audiovisuales. Correo electrónico de contacto: <strong>nataliagimenez.min@gmail.com</strong></p><br>
-           
-            El objetivo de esta página web es presentar trabajos, proyectos personales y profesionales, así como ofrecer información sobre los servicios de diseño y desarrollo web realizados por la autora.<br>
-    
-
-            <p>Todos los contenidos de esta página web, incluyendo textos, imágenes, diseños, logotipos, ilustraciones, vídeos, código fuente y demás elementos gráficos, son propiedad de la autora o cuentan con la correspondiente autorización para su utilización.</p><br>
-
-            <p>Queda prohibida la reproducción, distribución, modificación o utilización de cualquier contenido sin la autorización previa y por escrito de su titular.La autora no garantiza la ausencia de errores en los contenidos publicados, aunque realizará las actuaciones necesarias para corregirlos cuando sean detectados.Asimismo, no se hace responsable del uso que terceros puedan realizar de la información publicada en este sitio web.</p><br>
-
-
-            <p>Esta página puede contener enlaces a sitios web de terceros, como redes sociales o plataformas externas. La autora no se responsabiliza del contenido ni de las políticas de privacidad de dichos sitios.Los datos personales facilitados mediante el formulario de contacto serán tratados conforme a la Política de Privacidad disponible en esta página web.</p><br>
-
-            <p>Este sitio web utiliza cookies propias y, en su caso, de terceros para mejorar la experiencia del usuario y obtener estadísticas de navegación. Puedes obtener más información en la Política de Cookies.</p><br>
-
-            <p>El presente Aviso Legal se rige por la legislación española. Para cualquier conflicto que pudiera derivarse del acceso o uso de este sitio web, ambas partes se someten a los Juzgados y Tribunales que correspondan conforme a la normativa vigente.
-            Última actualización: Julio de 2026.</p>
-                
-            `;
-
-            modal.style.display = "flex";
-        });
-
-        document.getElementById("cookies").addEventListener("click", function(e){
-            e.preventDefault();
-
-            titulo.textContent = "Política de Cookies";
-            texto.innerHTML = `
-                Aquí irá tu política de cookies.
-            `;
-
-            modal.style.display = "flex";
-        });
-
-        document.getElementById("privacidad").addEventListener("click", function(e){
-            e.preventDefault();
-
-            titulo.textContent = "Política de Privacidad";
-            texto.innerHTML = `
-                Aquí irá tu política de privacidad.
-            `;
-
-            modal.style.display = "flex";
-        });
-
-        cerrar.addEventListener("click", function(){
-            modal.style.display = "none";
-        });
-
-        window.addEventListener("click", function(e){
-            if(e.target === modal){
-                modal.style.display = "none";
-            }
-        });
-
-    });
-
-
-function actualizarBarra(porcentaje) {
-    const barra = document.getElementById("scroll_bar");
-    barra.style.width = porcentaje + "%";
-}
-
-let porcentaje = 0;
-
-const intervalo = setInterval(() => {
-
-    porcentaje++;
-    actualizarBarra(porcentaje);
-
-    if (porcentaje >= 100) {
-
-        clearInterval(intervalo);
-
-        setTimeout(() => {
-
-            const decision = localStorage.getItem("cookies");
-
-            if(decision){
-
-                // Ya aceptó o rechazó anteriormente
-                window.location.href = "home.html";
-
-            }else{
-
-                // Primera visita → mostrar banner
-                banner.style.display = "block";
-
-            }
-
-        },300);
-
-    }
-
-},70);
-
-
-const elementos = document.querySelectorAll(".frases, .imagenes, .video-youtube, .reto-aldeas");
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+/* Portfolio Natalia Giménez — scripts compartidos */
+(function () {
+    'use strict';
+
+    const PROJECT_PAGES = new Set([
+        'proyectos.html', 'aitana.html', 'videoaldeas.html', 'cosmeticos.html',
+        'marcapersonal.html', 'videothevaluescorner.html', 'pizzeriainteligencia.html',
+        'brevosanen.html', 'brevoaldeas.html', 'socialmediasanen.html'
+    ]);
+
+    function readCookieDecision() {
+        try {
+            return localStorage.getItem('cookies');
+        } catch (error) {
+            console.error('No se pudo consultar la decisión de cookies:', error);
+            return null;
         }
-    });
-}, {
-    threshold: 0.6
-});
-
-elementos.forEach(elemento => observer.observe(elemento));
-
-/*---BANNER COOKIES- ACEPTO---*/
-
-const banner = document.getElementById("cookie-banner");
-
-const aceptar = document.getElementById("aceptarCookies");
-
-const rechazar = document.getElementById("rechazarCookies");
-
-
-
-aceptar.addEventListener("click", ()=>{
-
-    localStorage.setItem("cookies","aceptadas");
-
-    banner.style.display = "none";
-
-    window.location.href = "home.html";
-
-});
-
-rechazar.addEventListener("click", ()=>{
-
-    localStorage.setItem("cookies","rechazadas");
-
-    banner.style.display = "none";
-
-    window.location.href = "home.html";
-
-});
-
-function iniciarAnalytics() {
-
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
     }
 
-    window.gtag = gtag;
+    function saveCookieDecision(decision) {
+        try {
+            localStorage.setItem('cookies', decision);
+            window.location.href = 'home.html';
+        } catch (error) {
+            console.error('No se pudo guardar la decisión:', error);
+        }
+    }
 
-    gtag('js', new Date());
-    gtag('config', 'G-MFT8B532JQ');
+    function getCurrentPage() {
+        const path = decodeURIComponent(window.location.pathname).toLowerCase();
+        return path.split('/').filter(Boolean).pop() || 'index.html';
+    }
+
+    function loadFragment(container, file, onLoaded) {
+        if (!container) return;
+        fetch(file)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                return response.text();
+            })
+            .then(html => {
+                container.innerHTML = html;
+                if (onLoaded) onLoaded(container);
+            })
+            .catch(error => console.error(`Error al cargar ${file}:`, error));
+    }
+
+    function initMenu() {
+        const container = document.getElementById('menu');
+        loadFragment(container, 'menu.html', menu => {
+            const page = getCurrentPage();
+            menu.querySelectorAll('.nav-link').forEach(link => {
+                const target = (link.getAttribute('href') || '').toLowerCase();
+                const active =
+                    (target === 'home.html' && page === 'home.html') ||
+                    (target === 'proyectos.html' && PROJECT_PAGES.has(page)) ||
+                    (target === 'contacto.html' && page === 'contacto.html');
+                if (active) link.classList.add('active');
+            });
+
+            const hamburger = menu.querySelector('.hamburguer');
+            const navMenu = menu.querySelector('.nav-menu');
+            if (!hamburger || !navMenu) return;
+
+            const setMenuOpen = open => {
+                hamburger.classList.toggle('active', open);
+                navMenu.classList.toggle('active', open);
+                hamburger.setAttribute('aria-expanded', String(open));
+            };
+
+            hamburger.addEventListener('click', () => {
+                setMenuOpen(!hamburger.classList.contains('active'));
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => setMenuOpen(false));
+            });
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
+        });
+    }
+
+    function initFooter() {
+        loadFragment(document.getElementById('footer'), 'footer.html');
+    }
+
+    function initProjectCards() {
+        const cards = document.querySelectorAll('.card');
+        if (!cards.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            cards.forEach(card => card.classList.add('visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                currentObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.15 });
+
+        cards.forEach(card => observer.observe(card));
+    }
+
+    function initIndexLoader() {
+        const bar = document.getElementById('scroll_bar');
+        if (!bar) return;
+
+        let percentage = 0;
+        const interval = window.setInterval(() => {
+            percentage += 1;
+            bar.style.width = `${percentage}%`;
+            if (percentage < 100) return;
+
+            window.clearInterval(interval);
+            window.setTimeout(() => {
+                const decision = readCookieDecision();
+                if (decision === 'aceptadas' || decision === 'rechazadas') {
+                    window.location.href = 'home.html';
+                    return;
+                }
+                const banner = document.getElementById('cookie-banner');
+                if (banner) banner.style.display = 'block';
+                else console.error('No se encuentra el banner de cookies.');
+            }, 300);
+        }, 70);
+    }
+
+function initCookieButtons() {
+    const accept = document.getElementById('aceptarCookies');
+    const reject = document.getElementById('rechazarCookies');
+
+    if (accept) {
+        accept.addEventListener('click', function (event) {
+            event.preventDefault();
+            saveCookieDecision('aceptadas');
+        });
+    }
+
+    if (reject) {
+        reject.addEventListener('click', function (event) {
+            event.preventDefault();
+            saveCookieDecision('rechazadas');
+        });
+    }
 }
 
-const decision = localStorage.getItem("cookies");
+    function initProjectCursor() {
+        const cursor = document.querySelector('.cursor-proyectos');
+        const cards = document.querySelectorAll('.galeria .card');
+        const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (!cursor || !cards.length || !supportsHover) return;
 
-if (decision === "aceptadas") {
-    iniciarAnalytics();
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => cursor.classList.add('activo'));
+            card.addEventListener('mousemove', event => {
+                cursor.style.left = `${event.clientX}px`;
+                cursor.style.top = `${event.clientY}px`;
+            });
+            card.addEventListener('mouseleave', () => cursor.classList.remove('activo'));
+        });
+    }
+
+    function initHomeEntrance() {
+        if (getCurrentPage() === 'home.html') {
+            window.requestAnimationFrame(() => document.body.classList.add('home-lista'));
+        }
+    }
+
+    function initCursorSeguimiento() {
+
+    // Solo activar en dispositivos con ratón
+    if (!window.matchMedia(
+        '(hover: hover) and (pointer: fine)'
+    ).matches) {
+        return;
+    }
+
+    // Crear el cursor personalizado
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor-seguimiento';
+    document.body.appendChild(cursor);
+
+    // Seguir el movimiento del ratón
+    document.addEventListener('mousemove', function (event) {
+        cursor.style.left = `${event.clientX}px`;
+        cursor.style.top = `${event.clientY}px`;
+    });
+
+    // Mostrar y ocultar el cursor sobre las imágenes
+    document.querySelectorAll(
+        '.galeria-imagenes .tarjeta'
+    ).forEach(function (tarjeta) {
+
+        tarjeta.addEventListener('mouseenter', function () {
+            cursor.classList.add('activo');
+        });
+
+        tarjeta.addEventListener('mouseleave', function () {
+            cursor.classList.remove('activo');
+        });
+
+    });
 }
 
-aceptar.addEventListener("click", ()=>{
+    function initPortfolio() {
+        const page = getCurrentPage();
+        const decision = readCookieDecision();
+        if (page !== 'index.html' && decision !== 'aceptadas' && decision !== 'rechazadas') {
+            const path = window.location.pathname;
+            const base = path.substring(0, path.lastIndexOf('/') + 1);
+            window.location.replace(`${base}index.html`);
+            return;
+        }
 
-    localStorage.setItem("cookies","aceptadas");
+        initMenu();
+        initFooter();
+        initProjectCards();
+        initIndexLoader();
+        initCookieButtons();
+        initProjectCursor();
+        initHomeEntrance();
+        initCursorSeguimiento();
+    }
 
-    iniciarAnalytics();
-
-    banner.style.display = "none";
-
-    window.location.href = "home.html";
-
-});
-
-rechazar.addEventListener("click", ()=>{
-
-    localStorage.setItem("cookies","rechazadas");
-
-    banner.style.display = "none";
-
-    window.location.href = "home.html";
-
-});
-
-
-
-
-
-
-
-
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPortfolio);
+    } else {
+        initPortfolio();
+    }
+})();
