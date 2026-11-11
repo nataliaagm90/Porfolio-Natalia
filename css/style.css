@@ -958,25 +958,37 @@ section{
 
 /* CONTACTO - FORMULARIO */
 
-/* PÁGINA CONTACTO */
+/* TÍTULO CONTACTO */
 
 .contacto {
     color: var(--color-principal);
     display: inline-block;
-    transition: transform 0.3s ease;
+    font-weight: 300;
+    transform: scale(1);
+    transform-origin: center;
+    transition:
+        transform 0.4s ease,
+        font-weight 0.3s ease;
 }
+
+/* ZOOM + BOLD AL PASAR EL CURSOR */
 
 @media (hover: hover) and (pointer: fine) {
-.contacto {
-transform: scale(1.06);
-}
+    .contacto:hover {
+        transform: scale(1.06);
+        font-weight: 700;
+    }
 }
 
+/* ACCESIBILIDAD */
+
 @media (prefers-reduced-motion: reduce) {
-.contacto {
-transition: none;
+    .contacto {
+        transition: none;
+    }
 }
-}
+
+/* CONTENIDO DE CONTACTO */
 
 .contenido {
     min-height: calc(125vh - 80px);
@@ -986,8 +998,9 @@ transition: none;
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-
 }
+
+/* ANIMACIÓN DE REVELADO */
 
 .contenido-contacto {
     clip-path: inset(0 50% 0 50%);
@@ -1004,12 +1017,16 @@ transition: none;
     }
 }
 
+/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+
 @media (prefers-reduced-motion: reduce) {
     .contenido-contacto {
         animation: none;
         clip-path: none;
     }
 }
+
+/* DISTRIBUCIÓN DEL CONTENIDO */
 
 .contenido .parrafos {
     display: flex;
@@ -1038,105 +1055,95 @@ transition: none;
     gap: 15px;
 }
 
+/* TAMAÑO DEL TITULAR */
+
 .titular-primero.contacto {
     font-size: clamp(43px, 4vw, 150px);
     margin-bottom: 20px;
 }
 
-/* ANIMACIÓN DE REVELADO */
-
-@keyframes revelarContacto {
-    from {
-        clip-path: inset(0 50% 0 50%);
-    }
-
-    to {
-        clip-path: inset(0 0 0 0);
-    }
-}
-
-/* ACCESIBILIDAD: REDUCIR MOVIMIENTO */
-
-@media (prefers-reduced-motion: reduce) {
-    .contenido {
-        animation: none;
-        clip-path: none;
-    }
-}
-
-
 /* --- ERROR 404 --- */
 
 
 
-/* EFECTO DE CRISTAL VERDOSO EN LA LUPA */
+/* EFECTO DE CRISTAL VERDOSO */
 
 .texto-lupa .texto-revelado {
-background: radial-gradient(
-circle,
-rgba(18, 178, 180, 0.10) 0%,
-rgba(18, 178, 180, 0.06) 65%,
-rgba(18, 178, 180, 0.02) 100%
-);
-backdrop-filter: blur(1px);
--webkit-backdrop-filter: blur(1px);
+    background: radial-gradient(
+        circle,
+        rgba(18, 178, 180, 0.10) 0%,
+        rgba(18, 178, 180, 0.06) 65%,
+        rgba(18, 178, 180, 0.02) 100%
+    );
+
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
 }
 
-/* LUPA DE TEXTO - ERROR 404 */
+/* LUPA DE TEXTO */
 
 .texto-lupa {
-position: relative;
-display: grid;
-width: 100%;
+    position: relative;
+    display: grid;
+    width: 100%;
+    font-weight: 300;
 }
 
 .texto-lupa .texto-original,
 .texto-lupa .texto-revelado {
-grid-area: 1 / 1;
-width: 100%;
-margin: 0;
-text-align: center;
+    grid-area: 1 / 1;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-weight: 300;
 }
 
 .texto-lupa .texto-original {
-position: relative;
-z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .texto-lupa .texto-revelado {
-position: relative;
-z-index: 2;
-color: inherit;
-clip-path: circle(0 at 0 0);
-pointer-events: none;
+    position: relative;
+    z-index: 2;
+    color: inherit;
+    clip-path: circle(0 at 0 0);
+    pointer-events: none;
 }
+
+/* EVITAR QUE EL TEXTO SE AGRANDE */
 
 .texto-lupa .texto-revelado h1 {
-font-weight: inherit;
-text-shadow: none;
-transform: scale(1.10);
-transform-origin: center;
+    font-weight: 300;
+    text-shadow: none;
+    transform: none;
 }
 
-.texto-lupa .texto-revelado b {
-color: inherit;
+/* MANTENER EL PESO LIGHT */
+
+.texto-lupa b,
+.texto-lupa strong {
+    font-weight: 300;
 }
+
+/* OCULTAR EL CURSOR DEL RATÓN */
 
 @media (hover: hover) and (pointer: fine) {
-.texto-lupa {
-cursor: none;
+    .texto-lupa {
+        cursor: none;
+    }
 }
-}
+
+/* MÓVILES */
 
 @media (hover: none), (pointer: coarse) {
-.texto-lupa .texto-revelado {
-display: none;
-}
+    .texto-lupa .texto-revelado {
+        display: none;
+    }
 
-.texto-lupa {
-    cursor: auto;
-}
-
+    .texto-lupa {
+        cursor: auto;
+    }
 }
 
 /*RESPOSIVE*/
