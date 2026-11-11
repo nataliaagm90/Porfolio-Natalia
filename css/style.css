@@ -1000,7 +1000,7 @@ section{
     box-sizing: border-box;
 }
 
-.p a.link-email{
+a.link-email{
     text-decoration: none;
     color: var(--color-principal);
     font-weight: bold;
