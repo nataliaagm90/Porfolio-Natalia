@@ -408,8 +408,8 @@ section{
     align-items: center;
 }
 
-.contenido.columnas{
-    text-align: end;
+.columnas{
+    text-align: right;
     display: block;
     text-decoration: none;
 }
