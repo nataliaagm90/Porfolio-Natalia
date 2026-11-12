@@ -412,6 +412,13 @@ section{
     text-align: right;
     display: block;
     text-decoration: none;
+    width: 100%;
+}
+
+.columnas p{
+    text-decoration: none;
+    color: var(--color-btn-texto);
+    font-weight: normal;
 }
 
 .texto-home b{
