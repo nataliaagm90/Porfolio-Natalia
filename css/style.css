@@ -413,6 +413,7 @@ section{
     display: block;
     text-decoration: none;
     width: 100%;
+    font-family: var(--font-family-headings);
 }
 
 a.btn-grey {
