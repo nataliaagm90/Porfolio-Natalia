@@ -410,6 +410,10 @@ section{
 
 .texto-home b{
     font-weight: bold;
+    color: var(--color-hover);
+}
+.texto-home p{
+    color: var(--color-principal);
 }
 
 .redes-sociales{
