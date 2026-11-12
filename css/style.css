@@ -415,7 +415,7 @@ section{
     width: 100%;
 }
 
-.columnas p{
+.columnas p a{
     text-decoration: none;
     color: var(--color-btn-texto);
     font-weight: normal;
