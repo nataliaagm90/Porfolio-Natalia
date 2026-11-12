@@ -379,6 +379,16 @@ section{
     box-sizing: border-box;
 }
 
+.btn.acerca{
+    margin-top: 25px;
+}
+
+a.verproyectos{
+    background-color: white;
+    border: 2px solid var(--color-principal);
+    color: var(--color-principal);
+}
+
 /* PROYECTOS DESTACADOS */
 
 .proyectos-home {
