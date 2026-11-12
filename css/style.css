@@ -464,7 +464,7 @@ a.verproyectos{
     font-weight: 300;
     font-size: clamp(45px, 7vw, 150px);
     margin: 0;
-    line-height: clamp(45px, 15vw, 350px);
+    line-height: clamp(45px, 15vw, 200px);
     text-align: left;
 }
 
