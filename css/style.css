@@ -478,14 +478,17 @@ section{
 
 .texto-home b {
     font-weight: normal;
+    font-family: var(--font-family-headings);
 }
 
 .texto-home.subtitulo {
     color: var(--color-principal);
+    font-family: var(--font-family-headings);
 }
 
 .texto-home.subtitulo b {
     font-weight: bold;
+    font-family: var(--font-family-headings);
 }
 
 /* COLUMNAS Y ENLACES */
