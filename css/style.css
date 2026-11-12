@@ -428,6 +428,9 @@ section{
 .texto-home.subtitulo{
     color: var(--color-principal);
 }
+.texto-home.subtitulo b{
+    font-weight: bold;
+}
 
 .redes-sociales{
     display: flex;
