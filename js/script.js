@@ -52,7 +52,6 @@
             menu.querySelectorAll('.nav-link').forEach(link => {
                 const target = (link.getAttribute('href') || '').toLowerCase();
                 const active =
-                    (target === 'home.html' && page === 'home.html') ||
                     (target === 'proyectos.html' && PROJECT_PAGES.has(page)) ||
                     (target === 'contacto.html' && page === 'contacto.html');
                 if (active) link.classList.add('active');
