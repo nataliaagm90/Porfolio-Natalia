@@ -375,7 +375,7 @@ section{
     font-weight: 300;
     font-size: clamp(45px, 7vw, 150px);
     margin: 0;
-    line-height: clamp(45px, 15vw, 170px);
+    line-height: clamp(45px, 15vw, 350px);
 }
 
 .titular-primero b{
@@ -415,7 +415,7 @@ section{
     width: 100%;
 }
 
-.btn-grey a{
+a .btn-grey {
     text-decoration: none;
     color: var(--color-btn-texto);
     font-weight: normal;
