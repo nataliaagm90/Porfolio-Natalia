@@ -375,7 +375,7 @@ section{
     font-weight: 300;
     font-size: clamp(45px, 7vw, 150px);
     margin: 0;
-    line-height: clamp(45px, 15vw, 150px);
+    line-height: clamp(45px, 15vw, 170px);
 }
 
 .titular-primero b{
