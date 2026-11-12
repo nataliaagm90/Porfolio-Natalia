@@ -408,6 +408,12 @@ section{
     align-items: center;
 }
 
+.contenido.columnas{
+    text-align: end;
+    display: block;
+    text-decoration: none;
+}
+
 .texto-home b{
     font-weight: bold;
     color: var(--color-hover);
