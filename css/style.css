@@ -415,10 +415,10 @@ section{
 }
 
 .texto-home b{
-    font-weight: bold;
-    color: var(--color-hover);
+    font-weight: normal;
+   
 }
-.texto-home p{
+.texto-home.subtitulo{
     color: var(--color-principal);
 }
 
