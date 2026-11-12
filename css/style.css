@@ -490,16 +490,19 @@ a.verproyectos{
 .texto-home b {
     font-weight: normal;
     font-family: var(--font-family-headings);
+    font-size: var(--font-size-principal);
 }
 
 .texto-home.subtitulo {
     color: var(--color-principal);
     font-family: var(--font-family-headings);
+    font-size: var(--font-size-principal);
 }
 
 .texto-home.subtitulo b {
     font-weight: bold;
     font-family: var(--font-family-headings);
+    font-size: var(--font-size-principal);
 }
 
 /* COLUMNAS Y ENLACES */
