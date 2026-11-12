@@ -373,7 +373,7 @@ section{
     line-height: 0.7;
     font-family: var( --font-family-headings) ;
     font-weight: 300;
-    font-size: clamp(115px, 7vw, 150px);
+    font-size: clamp(45px, 15vw, 150px);
     margin: 0;
     line-height: clamp(133px, 6vw, 150px);
 }
