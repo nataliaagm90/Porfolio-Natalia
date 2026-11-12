@@ -364,7 +364,7 @@ section{
     width: 94%;
     max-width: 2000px;
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
 }
