@@ -590,6 +590,152 @@ a.btn-grey {
     }
 }
 
+/* PROYECTOS - GALERÍA DE CARDS */
+
+.galeria {
+    width: 90%;
+    max-width: 2000px;
+    margin: 200px auto 60px;
+
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color-principal);
+
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    cursor: none;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.texto-principal-proyectos {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 5;
+
+    margin: 0;
+    padding: 10px;
+
+    color: var(--color-principal);
+    background-color: white;
+    border-radius: 20px;
+
+    font-family: var(--font-family-base);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.card a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--color-principal);
+    mix-blend-mode: multiply;
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* EFECTOS HOVER */
+
+@media (hover: hover) and (pointer: fine) {
+    .card:hover img {
+        transform: scale(1.05);
+    }
+
+    .card:hover a::after {
+        opacity: 1;
+    }
+}
+
+/* CURSOR PERSONALIZADO */
+
+.cursor-proyectos {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    font-family: var(--font-family-base);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.7);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.cursor-proyectos.activo {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card img,
+    .card a::after,
+    .cursor-proyectos {
+        transition: none;
+    }
+}
+
 
 
 
