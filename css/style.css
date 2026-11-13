@@ -1104,13 +1104,14 @@ a.btn-grey {
 
 .texto-acercade{
     font-family: var(--font-family-headings);
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-principal);
 }
 
 .info-quehago{
     display: flex;
     justify-content: left;
     gap: 100px;
+    margin-bottom: 50px;
 }
 
 .programas-linea{
