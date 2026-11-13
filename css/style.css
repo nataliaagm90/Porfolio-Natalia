@@ -358,26 +358,7 @@ section{
 
 /* HOME-ABOUT */
 
-/* HOME: CENTRADO VERTICAL */
 
-.contenedor {
-    width: 94%;
-    max-width: 2000px;
-    margin: 0 auto;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.contenido {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 45px;
-    padding: 50px 0;
-    box-sizing: border-box;
-}
 
 .btn.acerca{
     margin-top: 25px;
