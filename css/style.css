@@ -1176,6 +1176,24 @@ a.btn-grey {
     width: fit-content;
     margin: 0;
     white-space: nowrap;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 0;
+    min-width: 136px;
+
+    border-radius: 40px;
+
+    font-family: 'Jura', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: lighter;
+    transition: 0.3s;
+    background-color: var(--color-principal);
+    color: white;
+    margin-bottom: 20px;
 }
 
 /* TEXTO */
