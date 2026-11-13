@@ -1063,12 +1063,12 @@ a.btn-grey {
 
 
 .info-acercade {
-    display: flex;
-    align-items: start;
+    display: block;
+    align-items: center;
     gap: 40px;
     width: 100%;
     min-width: 0;
-    text-align: left;
+    text-align: center;
 }
 
 .imag.acercade {
@@ -1111,6 +1111,7 @@ a.btn-grey {
     font-weight: bold;
     font-size: var(--font-size-h1);
     font-family: var(--font-family-headings);
+    text-align: center;
 }
 
 .texto-acercade{
@@ -1119,32 +1120,35 @@ a.btn-grey {
 }
 
 .info-quehago{
-    display: flex;
-    justify-content: left;
+    display: block;
+    justify-content: center;
     gap: 100px;
     margin-bottom: 50px;
 }
 
-.programas-linea{
-    display: flex;
-    justify-content: left;
-    gap: 30px;
-    margin-top: 20px;
+.texto-quehago1{
+    text-align: center;
+    margin-bottom: 35px;
 }
+
+
 
 .profesion{
     display: flex;
 }
 
-.programas{
-    background-color: white;
-    border-radius: 20px;
-    border: 1px solid var(--color-principal);
-    width: 10%;
-    padding: 12px;
-    font-family: var(--font-family-headings);
-    font-size: var(--font-size-small);
-    text-align: center;
+.programas-linea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.programas {
+    flex: 0 0 auto;
+    width: fit-content;
+    margin: 0;
+    white-space: nowrap;
 }
 
 /* CONTACTO - FORMULARIO */
@@ -1531,6 +1535,36 @@ a.link-email{
 .tarjeta.brevo img{
     width: 100%;
     height: 100%;
+}
+
+
+/*---ACERCA DE ---*/
+
+.info-acercade {
+    display: flex;
+    align-items: start;
+    gap: 40px;
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+}
+
+.info-quehago{
+    display: flex;
+    justify-content: left;
+    gap: 100px;
+    margin-bottom: 50px;
+}
+
+.titulares-acercade{
+    text-align: left;
+}
+
+.programas-linea{
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    margin-top: 20px;
 }
 
 /*---CONTACTO---*/
