@@ -1074,6 +1074,10 @@ a.btn-grey {
     margin-top: 48px;
 }
 
+.contenedor-proyecto{
+    margin-top: -14px;
+}
+
 /* PRESENTACIÓN */
 
 .info-acercade {
@@ -1790,6 +1794,10 @@ section {
 }
 
 .contenedor {
+    margin-top: 135px;
+}
+
+.contenedor-proyecto{
     margin-top: 135px;
 }
 
