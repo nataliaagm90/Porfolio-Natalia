@@ -1269,7 +1269,8 @@ a.link-email{
 
 .titular-primero.contacto {
     font-size: clamp(43px, 4vw, 150px);
-    margin-bottom: 20px;
+    line-height: 1.1;
+    margin: 0 0 20px;
 }
 
 /* --- ERROR 404 --- */
@@ -1620,8 +1621,6 @@ a.link-email{
     min-height: calc(100vh - 80px);
 }
 
-.titular-primero.contacto{
-     font-size: clamp(45px, 4vw, 150px);
-}
+
 
 }
