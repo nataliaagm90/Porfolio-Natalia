@@ -54,7 +54,8 @@
                 const active =
                     
                     (target === 'proyectos.html' && PROJECT_PAGES.has(page)) ||
-                    (target === 'contacto.html' && page === 'contacto.html');
+                    (target === 'contacto.html' && page === 'contacto.html')||
+                    (target === 'acercade.html' && page === 'acercade.html');
                 if (active) link.classList.add('active');
             });
 
