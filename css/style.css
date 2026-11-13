@@ -64,6 +64,7 @@ section{
     width: 94%;
     max-width: 2000px;
     margin-inline: auto;
+    margin-top: 135px;
 }
 
 .btn a {
@@ -1447,6 +1448,13 @@ a.link-email{
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: clamp(18px, 2vw, 35px);
+    }
+    .texto-home{
+        text-align: left;
+    }
+
+     .texto-home.subtitulo{
+        text-align: left;
     }
 
     /*PROYECTOS -GENERAL GALERIA*/
