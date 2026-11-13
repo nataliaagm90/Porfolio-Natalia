@@ -1745,6 +1745,13 @@ section {
     min-height: calc(100vh - 80px);
 }
 
+.contenedor {
+    width: 94%;
+    max-width: 2000px;
+    margin-inline: auto;
+    margin-top: 0;
+}
+
 
 
 }
