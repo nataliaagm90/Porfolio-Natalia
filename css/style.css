@@ -1070,7 +1070,7 @@ a.btn-grey {
     gap: clamp(45px, 6vw, 80px);
 }
 
-.contenedor.acercade {
+.contenedor {
     margin-top: 48px;
 }
 
@@ -1789,10 +1789,7 @@ section {
     line-height: 1.6;
 }
 
-.contenedor-acercade {
-    width: 94%;
-    max-width: 2000px;
-    margin-inline: auto;
+.contenedor {
     margin-top: 135px;
 }
 
