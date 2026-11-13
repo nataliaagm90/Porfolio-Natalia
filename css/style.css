@@ -1167,6 +1167,7 @@ a.btn-grey {
     background-color: white;
     border-radius: 40px;
     border: 2px solid var(--color-principal);
+    padding: 10px;
 }
 
 /* CONTACTO - FORMULARIO */
