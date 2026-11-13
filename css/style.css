@@ -1278,6 +1278,10 @@ a.btn-grey {
         font-weight 0.3s ease;
 }
 
+.contenedor-contacto{
+    margin-top: 140px;
+}
+
 /* ZOOM + BOLD AL PASAR EL CURSOR */
 
 @media (hover: hover) and (pointer: fine) {
