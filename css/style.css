@@ -1132,6 +1132,10 @@ a.btn-grey {
     margin-top: 20px;
 }
 
+.profesion{
+    display: flex;
+}
+
 .programas{
     background-color: white;
     border-radius: 20px;
