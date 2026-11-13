@@ -1135,6 +1135,8 @@ a.btn-grey {
 
 .profesion{
     display: flex;
+    justify-content: left;
+    gap: 100px;
 }
 
 .programas-linea {
