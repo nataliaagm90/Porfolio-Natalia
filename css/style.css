@@ -361,10 +361,11 @@ section{
 .home{
     width: 90%;
     max-width: 2000px;
-    margin: 200px auto 60px;
+    margin: 80px auto 60px;
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 25px;
+    text-align: center;
 }
 
 
@@ -384,7 +385,7 @@ section{
 .proyectos-home {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: clamp(18px, 2vw, 35px);
 }
 
@@ -455,7 +456,7 @@ section{
     font-size: clamp(45px, 7vw, 150px);
     margin: 0;
     line-height: clamp(45px, 15vw, 200px);
-    text-align: left;
+    text-align: center;
 }
 
 .titular-primero b {
@@ -1416,6 +1417,30 @@ a.link-email{
         align-items: center;
         gap: 12px;
         margin-top: 12px;
+    }
+
+    .home{
+        width: 90%;
+        max-width: 2000px;
+        margin: 200px auto 60px;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 25px;
+    }
+    .titular-primero {
+        color: #727272;
+        font-family: var(--font-family-headings);
+        font-weight: 300;
+        font-size: clamp(45px, 7vw, 150px);
+        margin: 0;
+        line-height: clamp(45px, 15vw, 200px);
+        text-align: left;
+    }
+    .proyectos-home {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(18px, 2vw, 35px);
     }
 
     /*PROYECTOS -GENERAL GALERIA*/
