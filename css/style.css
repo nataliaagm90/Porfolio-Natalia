@@ -1282,6 +1282,54 @@ a.link-email{
     margin: 0 0 20px;
 }
 
+/* CENTRADO DE TODA LA PÁGINA CONTACTO */
+
+section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido.contenido-contacto {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+/* ANCHO DEL TEXTO */
+
+.contenido-contacto .parrafos {
+    width: 100%;
+    max-width: 750px;
+    gap: 10px;
+}
+
+.contenido-contacto .texto-principal {
+    margin: 0;
+    text-align: center;
+}
+
+/* BOTÓN Y REDES */
+
+.contenido-contacto .cv-natalia {
+    margin-top: 10px;
+}
+
+.contenido-contacto .redes-sociales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* --- ERROR 404 --- */
 
 
