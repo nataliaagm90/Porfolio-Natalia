@@ -360,7 +360,7 @@ section{
 /* HOME-ABOUT */
 
 .home{
-    width: 90%;
+    width: 100%;
     max-width: 2000px;
     margin: 80px auto 60px;
     display: grid;
@@ -1076,7 +1076,7 @@ a.btn-grey {
 
 .contenedor-proyecto{
     margin-top: -14px;
-    width: 96%;
+    width: 91%;
     max-width: 2000px;
     margin-inline: auto;
     margin-top: 0;
@@ -1806,7 +1806,7 @@ section {
 }
 
 .contenedor-proyecto{
-    margin-top: 135px;
+    margin-top: -2px;
 }
 
 /*---CONTACTO---*/
