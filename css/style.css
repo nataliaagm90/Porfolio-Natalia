@@ -1098,12 +1098,12 @@ a.btn-grey {
 }
 
 .texto-acercade h1 {
-    text-align: left;
+    text-align: center;
     margin: 0 0 15px;
 }
 
 .texto-acercade p {
-    text-align: left;
+    text-align: center;
     margin: 0;
     line-height: 1.6;
 }
@@ -1126,14 +1126,17 @@ a.btn-grey {
     display: block;
     justify-content: center;
     gap: 100px;
-    margin-bottom: 50px;
+   
 }
 
-.texto-quehago1{
+.texto-quehago1, .texto-quehago2, .texto-quehago3, .texto-quehago4{
     text-align: center;
     margin-bottom: 35px;
 }
 
+.info-experiencia{
+    margin-bottom: 20px;
+}
 
 
 .profesion{
@@ -1148,6 +1151,8 @@ a.btn-grey {
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .programas {
@@ -1613,6 +1618,17 @@ a.link-email{
     display: flex;
     justify-content: left;
     gap: 100px;
+}
+
+.texto-acercade h1 {
+    text-align: left;
+    margin: 0 0 15px;
+}
+
+.texto-acercade p {
+    text-align: left;
+    margin: 0;
+    line-height: 1.6;
 }
 
 /*---CONTACTO---*/
