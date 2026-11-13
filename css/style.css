@@ -1070,6 +1070,10 @@ a.btn-grey {
     gap: clamp(45px, 6vw, 80px);
 }
 
+.contenedor.acercade {
+    margin-top: 48px;
+}
+
 /* PRESENTACIÓN */
 
 .info-acercade {
@@ -1783,6 +1787,13 @@ section {
     text-align: left;
     margin: 0;
     line-height: 1.6;
+}
+
+.contenedor-acercade {
+    width: 94%;
+    max-width: 2000px;
+    margin-inline: auto;
+    margin-top: 135px;
 }
 
 /*---CONTACTO---*/
