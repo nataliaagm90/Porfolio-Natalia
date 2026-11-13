@@ -914,6 +914,85 @@ a.btn-grey {
 }
 
 
+/* ACERCA DE: PRESENTACIÓN */
+
+.info-acercade {
+    display: flex;
+    align-items: start;
+    gap: 40px;
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+}
+
+.imag.acercade {
+    width: 18%;
+    justify-self: center;
+}
+
+.imag.acercade img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border: 4px solid var(--color-principal);
+    box-sizing: border-box;
+}
+
+.texto-acercade {
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+}
+
+.texto-acercade h1 {
+    text-align: left;
+    margin: 0 0 15px;
+}
+
+.texto-acercade p {
+    text-align: left;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.titulares-acercade{
+    color: var(--color-principal);
+    font-weight: bold;
+    font-size: var(--font-size-h1);
+    font-family: var(--font-family-headings);
+}
+
+.texto-acercade{
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-h3);
+}
+
+.info-quehago{
+    display: flex;
+    justify-content: left;
+    gap: 100px;
+}
+
+.programas-linea{
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.programas{
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid var(--color-principal);
+    width: 7%;
+    padding: 10px;
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-small);
+}
+
 /* CONTACTO - FORMULARIO */
 
 /* TÍTULO CONTACTO */
