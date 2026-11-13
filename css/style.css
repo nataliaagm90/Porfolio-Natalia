@@ -1063,9 +1063,11 @@ a.btn-grey {
 }
 
 .imag.acercade {
-    width: 18%;
+    width: 25%;
     justify-self: center;
+    margin-top: 54px;
 }
+
 
 .imag.acercade img {
     display: block;
