@@ -1591,6 +1591,10 @@ section {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: clamp(18px, 2vw, 35px);
     }
+
+    .proyecto-home-info{
+        text-align: left;
+    }
     .texto-home{
         text-align: left;
     }
@@ -1607,6 +1611,10 @@ section {
     width: 100%;
     margin-left: 0;
     padding-left: 0;
+}
+
+.categoria-proyecto{
+    text-align: left;
 }
 
     /*PROYECTOS -GENERAL GALERIA*/
