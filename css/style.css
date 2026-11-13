@@ -1196,6 +1196,16 @@ a.btn-grey {
     margin-bottom: 20px;
 }
 
+.btn.acerca {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+}
+
 /* TEXTO */
 
 .texto-acercade {
