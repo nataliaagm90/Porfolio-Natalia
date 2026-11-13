@@ -1131,6 +1131,7 @@ a.btn-grey {
     padding: 10px;
     font-family: var(--font-family-headings);
     font-size: var(--font-size-small);
+    text-align: center;
 }
 
 /* CONTACTO - FORMULARIO */
