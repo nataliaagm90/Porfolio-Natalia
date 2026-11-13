@@ -454,7 +454,7 @@ section{
     color: #727272;
     font-family: var(--font-family-headings);
     font-weight: 300;
-    font-size: clamp(45px, 7vw, 150px);
+    font-size: clamp(40px, 7vw, 120px);
     margin: 0;
     line-height: clamp(45px, 15vw, 200px);
     text-align: center;
@@ -463,7 +463,7 @@ section{
 .titular-primero b {
     color: var(--color-principal);
     font-family: var(--font-family-turquesa);
-    font-size: clamp(60px, 10vw, 190px);
+   font-size: clamp(50px, 9vw, 155px);
 }
 
 /* TEXTOS */
@@ -482,19 +482,19 @@ section{
 .texto-home b {
     font-weight: normal;
     font-family: var(--font-family-headings);
-    font-size: var(--font-size-h3);
+    font-size: clamp(20px, 2vw, 30px);
 }
 
 .texto-home.subtitulo {
     color: var(--color-principal);
     font-family: var(--font-family-headings);
-    font-size: var(--font-size-h3);
+    font-size: clamp(20px, 2vw, 30px);
 }
 
 .texto-home.subtitulo b {
     font-weight: bold;
     font-family: var(--font-family-headings);
-    font-size: var(--font-size-h3);
+    font-size: inherit;
 }
 
 /* COLUMNAS Y ENLACES */
@@ -512,6 +512,11 @@ a.btn-grey {
     color: var(--color-btn-texto);
     font-weight: normal;
     font-size: clamp(16px, 1.3vw, 26px);
+}
+
+.btn.acerca a {
+    font-size: clamp(14px, 1.2vw, 20px);
+    padding: 12px clamp(20px, 2vw, 30px);
 }
 
 /* REDES SOCIALES */
