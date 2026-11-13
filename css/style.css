@@ -195,7 +195,7 @@ section{
     color: var(--color-textos);
     font-family: var(--font-family-base);
     font-weight: var(--font-weight-normal);
-    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    font-size: var(--font-size-principal);
     line-height: 1.8;
 
 }
@@ -1169,7 +1169,6 @@ a.btn-grey {
 /* CONTENIDO DE CONTACTO */
 
 .contenido.contenido-contacto {
-    min-height: calc(125vh - 80px);
     display: flex;
     flex-direction: column;
     justify-content: center;
