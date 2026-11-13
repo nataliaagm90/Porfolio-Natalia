@@ -1571,7 +1571,7 @@ section {
     .home{
         width: 90%;
         max-width: 2000px;
-        margin: 200px auto 60px;
+        margin: 130px auto 60px;
         display: grid;
         grid-template-columns: repeat(1, minmax(0, 1fr));
         gap: 25px;
