@@ -196,8 +196,8 @@ section{
     color: var(--color-textos);
     font-family: var(--font-family-base);
     font-weight: var(--font-weight-normal);
-    font-size: var(--font-size-principal);
-    line-height: 1.8;
+    font-size: clamp(16px, 1.4vw, 24px);
+    line-height: 1.6;
 
 }
 
