@@ -1076,6 +1076,10 @@ a.btn-grey {
 
 .contenedor-proyecto{
     margin-top: -14px;
+    width: 96%;
+    max-width: 2000px;
+    margin-inline: auto;
+    margin-top: 0;
 }
 
 /* PRESENTACIÓN */
