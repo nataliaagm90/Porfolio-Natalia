@@ -219,6 +219,34 @@
         listas.forEach(lista => observador.observe(lista));
     }
 
+    /* --- Botones magnéticos: se inclinan un poco hacia el cursor ---------- */
+
+    function initBotonesMagneticos() {
+        if (!tieneRaton || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const FUERZA = 0.25;   // cuánto siguen al cursor
+        const MAXIMO = 6;      // desplazamiento máximo en píxeles
+        const limitar = valor => Math.max(-MAXIMO, Math.min(MAXIMO, valor));
+
+        // Delegado en el documento para que funcione también con botones creados después (cookies)
+        document.addEventListener('pointermove', evento => {
+            const boton = evento.target.closest('.boton');
+            if (!boton) return;
+            const zona = boton.getBoundingClientRect();
+            const x = (evento.clientX - (zona.left + zona.width / 2)) * FUERZA;
+            const y = (evento.clientY - (zona.top + zona.height / 2)) * FUERZA;
+            boton.style.setProperty('--mx', `${limitar(x)}px`);
+            boton.style.setProperty('--my', `${limitar(y)}px`);
+        });
+
+        document.addEventListener('pointerout', evento => {
+            const boton = evento.target.closest('.boton');
+            if (!boton || boton.contains(evento.relatedTarget)) return;
+            boton.style.removeProperty('--mx');
+            boton.style.removeProperty('--my');
+        });
+    }
+
     /* --- Cursores personalizados ----------------------------------------- */
 
     // Círculo "VER" sobre las tarjetas de la página de proyectos
@@ -394,6 +422,7 @@
         initPortadaCarga();
         initTarjetasProyectos();
         initLineasDeTiempo();
+        initBotonesMagneticos();
         initCursorProyectos();
         initCursorImagenes();
         initPagina404();
