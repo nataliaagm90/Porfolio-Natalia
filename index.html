@@ -1,58 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>Natalia Giménez · Diseñadora gráfica y digital en Madrid</title>
+    <meta name="description" content="Portfolio de Natalia Giménez, diseñadora gráfica y digital en Madrid.">
 
-    <meta property="og:title" content="Natalia Giménez Mínguez">
-
+    <meta property="og:title" content="Natalia Giménez · Diseñadora gráfica y digital en Madrid">
+    <meta property="og:description" content="Portfolio de Natalia Giménez, diseñadora gráfica y digital en Madrid.">
     <meta property="og:image" content="https://nataliagm.com/img/logos/logo-portada-linkedin.jpg">
+    <meta property="og:type" content="website">
 
-    
     <link rel="icon" type="image/png" href="img/logos/icono_natalia.png">
 
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/stylemenu.css">
-    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 <body>
 
-    <div class="contenedor contenedor-logo">
-        <div class="logo">
-            <a href="home.html"><img class="logo-natalia" src="img/logos/logonatalia2-07.svg"></a>
+    <main class="portada-carga">
+        <a href="home.html" aria-label="Entrar al portfolio de Natalia Giménez">
+            <img src="img/logos/logonatalia2-07.svg" alt="Natalia Giménez Design">
+        </a>
+    </main>
+
+    <div class="barra-carga" aria-hidden="true">
+        <div class="barra-carga__progreso"></div>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+        <p class="cookie-banner__titulo">Cookies</p>
+        <p>Utilizamos cookies para mejorar tu experiencia y analizar el tráfico de la web. Puedes aceptar todas las cookies o rechazarlas.</p>
+        <div class="botones">
+            <button type="button" id="rechazarCookies" class="boton boton--secundario">Rechazar</button>
+            <button type="button" id="aceptarCookies" class="boton">Aceptar</button>
         </div>
     </div>
 
-    <div class="barra">
-         <div id="scroll_bar"></div>
-    </div>
-   
-
-
-    <div id="cookie-banner" class="cookie-banner">
-
-        <div class="cookie-texto">
-            <h3>🍪 Cookies</h3>
-
-            <p>
-                Utilizamos cookies para mejorar tu experiencia y analizar el tráfico de la web.
-                Puedes aceptar todas las cookies o rechazarlas.
-            </p>
-        </div>
-
-        <div class="cookie-botones">
-            <a id="rechazarCookies" class="btn secundario">
-                Rechazar
-            </a>
-
-            <a id="aceptarCookies" class="btn">
-                Aceptar
-            </a>
-        </div>
-
-    </div>
-     <script src="js/script.js"></script>
-    
 </body>
 </html>

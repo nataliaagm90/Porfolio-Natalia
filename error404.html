@@ -1,65 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Página no encontrada · Natalia Giménez</title>
+    <meta name="description" content="La página que buscas no existe.">
+
+    <meta property="og:title" content="Página no encontrada · Natalia Giménez">
+    <meta property="og:description" content="La página que buscas no existe.">
+    <meta property="og:image" content="https://nataliagm.com/img/logos/logo-portada-linkedin.jpg">
+    <meta property="og:type" content="website">
 
     <link rel="icon" type="image/png" href="img/logos/icono_natalia.png">
-    
+
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/stylemenu.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/fonts.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-    
 
-    <section>
-        <div class="contenedor">
-            <div class="contenido">
-                <div class="titulares texto-lupa">
-
-                    <!-- Texto original -->
-                    <div class="texto-original">
-                        <h1 class="titular-primero texto-entrada">¡Vaya <b class="azulturquesa">error 404,</b></h1>
-                        <h1 class="titular-primero texto-entrada">esta idea se</h1>
-                        <h1 class="titular-primero texto-entrada">ha perdido!</h1>
-                    </div>
-
-                    <!-- Texto alternativo que revela la lupa -->
-                    <div class="texto-revelado" aria-hidden="true">
-                        <h1 class="titular-primero">¡Vaya <b>error 404,</b></h1>
-                        <h1 class="titular-primero">esta idea se</h1>
-                        <h1 class="titular-primero">ha perdido!</h1>
-                    </div>
-                </div>
-                
-                <div class="error">
-                    <div class="btn">
-                        <a href="index.html">Volver a la home</a>
-                    </div>
+    <main class="">
+        <div class="contenedor error-404">
+            <div class="texto-lupa">
+                <h1 class="titular texto-lupa__original">
+                    <span class="linea">¡Vaya, <span class="caligrafia">error 404</span>,</span>
+                    <span class="linea">esta idea se</span>
+                    <span class="linea">ha perdido!</span>
+                </h1>
+                <div class="titular texto-lupa__revelado" aria-hidden="true">
+                    <span class="linea">¡Vaya, error 404,</span>
+                    <span class="linea">esta idea se</span>
+                    <span class="linea">ha perdido!</span>
                 </div>
             </div>
+
+            <div class="botones">
+                <a class="boton" href="home.html">Volver al inicio</a>
+            </div>
         </div>
- 
-    </section>
+    </main>
 
-    
-
-    
-
-    
-
-
-
-
-
-
-
-    
-    
-    <script src="js/script.js" defer></script>   
-    
 </body>
 </html>

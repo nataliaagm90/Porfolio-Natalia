@@ -1,273 +1,277 @@
-/* Portfolio Natalia Giménez — scripts compartidos */
+/* ==========================================================================
+   Portfolio Natalia Giménez · Scripts compartidos
+   --------------------------------------------------------------------------
+   - Carga del menú y del pie (menu.html / footer.html)
+   - Portada de carga (index.html) y aviso de cookies
+   - Animación de entrada de las tarjetas de proyectos
+   - Cursores personalizados y lupa de la página 404
+   ========================================================================== */
+
 (function () {
     'use strict';
 
-    const PROJECT_PAGES = new Set([
+    const PAGINAS_DE_PROYECTO = new Set([
         'proyectos.html', 'aitana.html', 'videoaldeas.html', 'cosmeticos.html',
         'marcapersonal.html', 'videothevaluescorner.html', 'pizzeriainteligencia.html',
         'brevosanen.html', 'brevoaldeas.html', 'socialmediasanen.html'
     ]);
 
-    function readCookieDecision() {
+    const tieneRaton = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    /* --- Utilidades ------------------------------------------------------ */
+
+    function paginaActual() {
+        const ruta = decodeURIComponent(window.location.pathname).toLowerCase();
+        return ruta.split('/').filter(Boolean).pop() || 'index.html';
+    }
+
+    function cargarFragmento(contenedor, archivo, alCargar) {
+        if (!contenedor) return;
+        fetch(archivo)
+            .then(respuesta => {
+                if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
+                return respuesta.text();
+            })
+            .then(html => {
+                contenedor.innerHTML = html;
+                if (alCargar) alCargar(contenedor);
+            })
+            .catch(error => console.error(`Error al cargar ${archivo}:`, error));
+    }
+
+    /* --- Cookies --------------------------------------------------------- */
+
+    function leerDecisionCookies() {
         try {
             return localStorage.getItem('cookies');
         } catch (error) {
-            console.error('No se pudo consultar la decisión de cookies:', error);
             return null;
         }
     }
 
-    function saveCookieDecision(decision) {
+    function guardarDecisionCookies(decision) {
         try {
             localStorage.setItem('cookies', decision);
-            window.location.href = 'home.html';
         } catch (error) {
-            console.error('No se pudo guardar la decisión:', error);
+            console.error('No se pudo guardar la decisión de cookies:', error);
         }
     }
 
-    function getCurrentPage() {
-        const path = decodeURIComponent(window.location.pathname).toLowerCase();
-        return path.split('/').filter(Boolean).pop() || 'index.html';
+    function hayDecisionCookies() {
+        const decision = leerDecisionCookies();
+        return decision === 'aceptadas' || decision === 'rechazadas';
     }
 
-    function loadFragment(container, file, onLoaded) {
-        if (!container) return;
-        fetch(file)
-            .then(response => {
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                return response.text();
-            })
-            .then(html => {
-                container.innerHTML = html;
-                if (onLoaded) onLoaded(container);
-            })
-            .catch(error => console.error(`Error al cargar ${file}:`, error));
+    /* Crea el aviso en las páginas que no lo traen en el HTML.
+       Así quien entra directamente a un proyecto (por ejemplo desde el CV)
+       lo ve sin que se le redirija a la portada. */
+    function crearBannerCookies() {
+        const banner = document.createElement('div');
+        banner.id = 'cookie-banner';
+        banner.className = 'cookie-banner';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-label', 'Aviso de cookies');
+        banner.innerHTML = `
+            <p class="cookie-banner__titulo">Cookies</p>
+            <p>Utilizamos cookies para mejorar tu experiencia y analizar el tráfico de la web.
+               Puedes aceptar todas las cookies o rechazarlas.</p>
+            <div class="botones">
+                <button type="button" id="rechazarCookies" class="boton boton--secundario">Rechazar</button>
+                <button type="button" id="aceptarCookies" class="boton">Aceptar</button>
+            </div>`;
+        document.body.appendChild(banner);
+        return banner;
     }
+
+    function initCookies() {
+        const enPortada = paginaActual() === 'index.html';
+        let banner = document.getElementById('cookie-banner');
+
+        if (!enPortada && !hayDecisionCookies()) {
+            banner = banner || crearBannerCookies();
+            banner.classList.add('visible');
+        }
+        if (!banner) return;
+
+        const decidir = decision => {
+            guardarDecisionCookies(decision);
+            if (enPortada) {
+                window.location.href = 'home.html';
+            } else {
+                banner.classList.remove('visible');
+            }
+        };
+
+        const aceptar = banner.querySelector('#aceptarCookies');
+        const rechazar = banner.querySelector('#rechazarCookies');
+        if (aceptar) aceptar.addEventListener('click', () => decidir('aceptadas'));
+        if (rechazar) rechazar.addEventListener('click', () => decidir('rechazadas'));
+    }
+
+    /* --- Portada de carga (index.html) ----------------------------------- */
+
+    function initPortadaCarga() {
+        const barra = document.querySelector('.barra-carga__progreso');
+        if (!barra) return;
+
+        // Si ya se eligió una opción de cookies, se pasa directamente a la home
+        if (hayDecisionCookies()) {
+            window.location.replace('home.html');
+            return;
+        }
+
+        let porcentaje = 0;
+        const intervalo = window.setInterval(() => {
+            porcentaje += 1;
+            barra.style.width = `${porcentaje}%`;
+            if (porcentaje < 100) return;
+
+            window.clearInterval(intervalo);
+            const banner = document.getElementById('cookie-banner');
+            if (banner) banner.classList.add('visible');
+        }, 30);
+    }
+
+    /* --- Menú ------------------------------------------------------------ */
 
     function initMenu() {
-        const container = document.getElementById('menu');
-        loadFragment(container, 'menu.html', menu => {
-            const page = getCurrentPage();
-            menu.querySelectorAll('.nav-link').forEach(link => {
-                const target = (link.getAttribute('href') || '').toLowerCase();
-                const active =
-                    
-                    (target === 'proyectos.html' && PROJECT_PAGES.has(page)) ||
-                    (target === 'contacto.html' && page === 'contacto.html')||
-                    (target === 'acercade.html' && page === 'acercade.html');
-                if (active) link.classList.add('active');
+        cargarFragmento(document.getElementById('menu'), 'menu.html', menu => {
+            const pagina = paginaActual();
+
+            menu.querySelectorAll('.nav-link').forEach(enlace => {
+                const destino = (enlace.getAttribute('href') || '').toLowerCase();
+                const activo =
+                    (destino === 'proyectos.html' && PAGINAS_DE_PROYECTO.has(pagina)) ||
+                    destino === pagina;
+                if (activo) {
+                    enlace.classList.add('active');
+                    enlace.setAttribute('aria-current', 'page');
+                }
             });
 
-            const hamburger = menu.querySelector('.hamburguer');
+            const hamburguesa = menu.querySelector('.hamburguesa');
             const navMenu = menu.querySelector('.nav-menu');
-            if (!hamburger || !navMenu) return;
+            if (!hamburguesa || !navMenu) return;
 
-            const setMenuOpen = open => {
-                hamburger.classList.toggle('active', open);
-                navMenu.classList.toggle('active', open);
-                hamburger.setAttribute('aria-expanded', String(open));
+            const abrirMenu = abierto => {
+                hamburguesa.classList.toggle('active', abierto);
+                navMenu.classList.toggle('active', abierto);
+                hamburguesa.setAttribute('aria-expanded', String(abierto));
             };
 
-            hamburger.addEventListener('click', () => {
-                setMenuOpen(!hamburger.classList.contains('active'));
+            hamburguesa.addEventListener('click', () => {
+                abrirMenu(!hamburguesa.classList.contains('active'));
             });
-            navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => setMenuOpen(false));
+            navMenu.querySelectorAll('a').forEach(enlace => {
+                enlace.addEventListener('click', () => abrirMenu(false));
             });
-            document.addEventListener('keydown', event => {
-                if (event.key === 'Escape') setMenuOpen(false);
+            document.addEventListener('keydown', evento => {
+                if (evento.key === 'Escape') abrirMenu(false);
             });
         });
     }
 
-    function initFooter() {
-        loadFragment(document.getElementById('footer'), 'footer.html');
+    function initPie() {
+        cargarFragmento(document.getElementById('footer'), 'footer.html');
     }
 
-    function initProjectCards() {
-        const cards = document.querySelectorAll('.card');
-        if (!cards.length) return;
+    /* --- Animación de entrada de las tarjetas ---------------------------- */
+
+    function initTarjetasProyectos() {
+        const tarjetas = document.querySelectorAll('.card');
+        if (!tarjetas.length) return;
 
         if (!('IntersectionObserver' in window)) {
-            cards.forEach(card => card.classList.add('visible'));
+            tarjetas.forEach(tarjeta => tarjeta.classList.add('visible'));
             return;
         }
 
-        const observer = new IntersectionObserver((entries, currentObserver) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-                currentObserver.unobserve(entry.target);
+        const observador = new IntersectionObserver((entradas, obs) => {
+            entradas.forEach(entrada => {
+                if (!entrada.isIntersecting) return;
+                entrada.target.classList.add('visible');
+                obs.unobserve(entrada.target);
             });
         }, { threshold: 0.15 });
 
-        cards.forEach(card => observer.observe(card));
+        tarjetas.forEach(tarjeta => observador.observe(tarjeta));
     }
 
-    function initIndexLoader() {
-        const bar = document.getElementById('scroll_bar');
-        if (!bar) return;
+    /* --- Cursores personalizados ----------------------------------------- */
 
-        let percentage = 0;
-        const interval = window.setInterval(() => {
-            percentage += 1;
-            bar.style.width = `${percentage}%`;
-            if (percentage < 100) return;
-
-            window.clearInterval(interval);
-            window.setTimeout(() => {
-                const decision = readCookieDecision();
-                if (decision === 'aceptadas' || decision === 'rechazadas') {
-                    window.location.href = 'home.html';
-                    return;
-                }
-                const banner = document.getElementById('cookie-banner');
-                if (banner) banner.style.display = 'block';
-                else console.error('No se encuentra el banner de cookies.');
-            }, 300);
-        }, 70);
-    }
-
-function initCookieButtons() {
-    const accept = document.getElementById('aceptarCookies');
-    const reject = document.getElementById('rechazarCookies');
-
-    if (accept) {
-        accept.addEventListener('click', function (event) {
-            event.preventDefault();
-            saveCookieDecision('aceptadas');
-        });
-    }
-
-    if (reject) {
-        reject.addEventListener('click', function (event) {
-            event.preventDefault();
-            saveCookieDecision('rechazadas');
-        });
-    }
-}
-
-    function initProjectCursor() {
+    // Círculo "VER" sobre las tarjetas de la página de proyectos
+    function initCursorProyectos() {
         const cursor = document.querySelector('.cursor-proyectos');
-        const cards = document.querySelectorAll('.galeria .card');
-        const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-        if (!cursor || !cards.length || !supportsHover) return;
+        const tarjetas = document.querySelectorAll('.galeria .card');
+        if (!cursor || !tarjetas.length || !tieneRaton) return;
 
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => cursor.classList.add('activo'));
-            card.addEventListener('mousemove', event => {
-                cursor.style.left = `${event.clientX}px`;
-                cursor.style.top = `${event.clientY}px`;
+        tarjetas.forEach(tarjeta => {
+            tarjeta.addEventListener('mouseenter', () => cursor.classList.add('activo'));
+            tarjeta.addEventListener('mousemove', evento => {
+                cursor.style.left = `${evento.clientX}px`;
+                cursor.style.top = `${evento.clientY}px`;
             });
-            card.addEventListener('mouseleave', () => cursor.classList.remove('activo'));
+            tarjeta.addEventListener('mouseleave', () => cursor.classList.remove('activo'));
         });
     }
 
-    function initHomeEntrance() {
-        if (getCurrentPage() === 'home.html') {
-            window.requestAnimationFrame(() => document.body.classList.add('home-lista'));
-        }
-    }
-  
-    function initCursorSeguimiento() {
-        // Activar únicamente en dispositivos con ratón
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            return;
-        }
+    // Círculo fino sobre las imágenes de cada proyecto
+    function initCursorImagenes() {
+        const imagenes = document.querySelectorAll('.galeria-imagenes .marco');
+        if (!tieneRaton || !imagenes.length) return;
 
-        // Evitar crear el cursor más de una vez
-        if (document.querySelector('.cursor-seguimiento')) {
-            return;
-        }
-
-        const tarjetas = document.querySelectorAll('.galeria-imagenes .tarjeta');
-
-        if (!tarjetas.length) {
-            return;
-        }
-
-        // Crear el cursor circular de las páginas individuales
         const cursor = document.createElement('div');
         cursor.className = 'cursor-seguimiento';
         cursor.setAttribute('aria-hidden', 'true');
         document.body.appendChild(cursor);
 
-        // Seguir el ratón
-        document.addEventListener('mousemove', function (event) {
-            cursor.style.left = `${event.clientX}px`;
-            cursor.style.top = `${event.clientY}px`;
+        document.addEventListener('mousemove', evento => {
+            cursor.style.left = `${evento.clientX}px`;
+            cursor.style.top = `${evento.clientY}px`;
         });
 
-        // Mostrar y ocultar el cursor en cada imagen
-        tarjetas.forEach(function (tarjeta) {
-            tarjeta.addEventListener('mouseenter', function () {
-                cursor.classList.add('activo');
-            });
-
-            tarjeta.addEventListener('mouseleave', function () {
-                cursor.classList.remove('activo');
-            });
+        imagenes.forEach(imagen => {
+            imagen.addEventListener('mouseenter', () => cursor.classList.add('activo'));
+            imagen.addEventListener('mouseleave', () => cursor.classList.remove('activo'));
         });
     }
 
+    /* --- Lupa de la página 404 ------------------------------------------- */
 
     function initLupa404() {
         const contenedor = document.querySelector('.texto-lupa');
-        if (!contenedor) return;
+        const revelado = contenedor && contenedor.querySelector('.texto-lupa__revelado');
+        if (!revelado || !tieneRaton) return;
 
-        const revelado = contenedor.querySelector('.texto-revelado');
-        if (!revelado) return;
-
-        const tieneRaton = window.matchMedia(
-            '(hover: hover) and (pointer: fine)'
-        ).matches;
-
-        if (!tieneRaton) return;
-
-        contenedor.addEventListener('pointermove', function (event) {
-            if (event.pointerType !== 'mouse') return;
-
-            const rect = contenedor.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-
-            revelado.style.clipPath =
-                `circle(85px at ${x}px ${y}px)`;
+        contenedor.addEventListener('pointermove', evento => {
+            if (evento.pointerType !== 'mouse') return;
+            const zona = contenedor.getBoundingClientRect();
+            const x = evento.clientX - zona.left;
+            const y = evento.clientY - zona.top;
+            revelado.style.clipPath = `circle(85px at ${x}px ${y}px)`;
         });
 
-        contenedor.addEventListener('pointerleave', function () {
+        contenedor.addEventListener('pointerleave', () => {
             revelado.style.clipPath = 'circle(0 at 0 0)';
         });
     }
 
+    /* --- Inicio ---------------------------------------------------------- */
 
-
-
-    function initPortfolio() {
-        const page = getCurrentPage();
-        const decision = readCookieDecision();
-        if (page !== 'index.html' && decision !== 'aceptadas' && decision !== 'rechazadas') {
-            const path = window.location.pathname;
-            const base = path.substring(0, path.lastIndexOf('/') + 1);
-            window.location.replace(`${base}index.html`);
-            return;
-        }
-
+    function iniciar() {
         initMenu();
-        initFooter();
-        initProjectCards();
-        initIndexLoader();
-        initCookieButtons();
-        initProjectCursor();
-        initHomeEntrance();
-        initCursorSeguimiento();
+        initPie();
+        initCookies();
+        initPortadaCarga();
+        initTarjetasProyectos();
+        initCursorProyectos();
+        initCursorImagenes();
         initLupa404();
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initPortfolio);
+        document.addEventListener('DOMContentLoaded', iniciar);
     } else {
-        initPortfolio();
+        iniciar();
     }
 })();

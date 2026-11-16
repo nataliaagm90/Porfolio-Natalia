@@ -1,54 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+<!-- Menú principal: se inserta en <div id="menu"> desde js/script.js -->
+<nav class="navbar contenedor" aria-label="Principal">
+    <a class="navbar__logo" href="home.html">
+        <img src="img/logos/logonatalia2-07.svg" alt="Natalia Giménez Design · Inicio">
+    </a>
 
-    <link rel="icon" type="image/png" href="img/logos/icono_natalia.png">
-    
-    <link rel="stylesheet" href="css/stylemenu.css">
-    <link rel="stylesheet" href="css/fonts.css">
-</head>
-<body>
+    <button type="button" class="hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburguesa__barra"></span>
+        <span class="hamburguesa__barra"></span>
+        <span class="hamburguesa__barra"></span>
+    </button>
 
-    <nav class="navbar">
-        <div class="logo">
-            <a href="home.html"><img class="icono-blanco" src="img/logos/logonatalia2-07.svg"></a>
-        </div>
-
-        <div class="hamburguer">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-menu">
-             <li class="nav-item"><a href="proyectos.html" class="nav-link">PROYECTOS</a></li>
-
-            <li class="nav-item"><a href="acercade.html" class="nav-link">ACERCA DE</a></li>
-
-            <li class="nav-item"><a href="contacto.html" class="nav-link">CONTACTO</a></li>
-
-            <li class="nav-sociales">
-                <a href="mailto:nataliagimenez.min@gmail.com" aria-label="Email">
-                    <img src="img/iconos/redes/SVG/Mesa de trabajo 14.svg" alt="">
-                </a>
-
-                <a href="https://www.linkedin.com/in/nataliaagm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <img src="img/iconos/redes/SVG/Mesa de trabajo 15.svg" alt="">
-                </a>
-
-                <a href="https://www.instagram.com/nataliagimenezminguez"  aria-label="Instagram" target="_blank">
-                    <img src="img/iconos/redes/SVG/Mesa de trabajo 16.svg" alt="">
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-    
-    
-</body>
-</html>
-
+    <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="proyectos.html" class="nav-link">Proyectos</a></li>
+        <li class="nav-item"><a href="acercade.html" class="nav-link">Acerca de</a></li>
+        <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+        <li class="nav-sociales">
+            <ul class="redes-sociales">
+                <li><a href="mailto:nataliagimenez.min@gmail.com" aria-label="Enviar un email"><img src="img/iconos/redes/SVG/icono-email.svg" alt=""></a></li>
+                <li><a href="https://www.linkedin.com/in/nataliaagm/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="img/iconos/redes/SVG/icono-linkedin.svg" alt=""></a></li>
+                <li><a href="https://www.instagram.com/nataliagimenezminguez" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/iconos/redes/SVG/icono-instagram.svg" alt=""></a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

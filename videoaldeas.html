@@ -1,82 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Aldeas Infantiles</title>
+    <title>Aldeas Infantiles SOS · Motion graphics · Natalia Giménez</title>
+    <meta name="description" content="Motion graphics para el Informe de Alianzas 2025 de Aldeas Infantiles SOS. Proyecto de Natalia Giménez, diseñadora gráfica y digital.">
+
+    <meta property="og:title" content="Aldeas Infantiles SOS · Motion graphics · Natalia Giménez">
+    <meta property="og:description" content="Motion graphics para el Informe de Alianzas 2025 de Aldeas Infantiles SOS. Proyecto de Natalia Giménez, diseñadora gráfica y digital.">
+    <meta property="og:image" content="https://nataliagm.com/img/logos/logo-portada-linkedin.jpg">
+    <meta property="og:type" content="website">
 
     <link rel="icon" type="image/png" href="img/logos/icono_natalia.png">
-    
+
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/stylemenu.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/fonts.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+
     <div id="menu"></div>
-        <section class="proyecto">
 
-            <div class="contenedor-proyecto">
+    <main class="pagina">
+        <article class="contenedor proyecto">
 
-                <div class="contenido-portada">
-                    <h1>Motion Graphics</h1>
-                    <h2>Aldeas Infantiles SOS</h2>
-                    <p>Para la presentación del informe de Alianzas, el área de empresas de Aldeas Infantiles SOS, desarrollé una pieza audiovisual que combina imágenes con pastillas gráficas manteninedo los colores corporativos de la empresa. </p>
-                    <p>La propuesta mantiene la identidad visual de la marca y facilita una comunicación dinámica, clara y coherente con su estética.</p>
-                        <div class="btn-categorias">
-                            <p>Edicción de Video</p>
-                            <p>Diseño Gráfico</p>
-                            <p>Diseño Audiovisual</p>
-
-                        </div>
-
+            <header class="proyecto__cabecera">
+                <h1 class="proyecto__titulo">Motion graphics</h1>
+                <p class="proyecto__subtitulo">Aldeas Infantiles SOS</p>
+                <div class="proyecto__descripcion">
+                    <p>Para la presentación del Informe de Alianzas del área de empresas de Aldeas Infantiles SOS, desarrollé una pieza audiovisual que combina imágenes con pastillas gráficas, manteniendo los colores corporativos de la organización.</p>
+                    <p>La propuesta respeta la identidad visual de la marca y facilita una comunicación dinámica, clara y coherente con su estética.</p>
                 </div>
+                <ul class="etiquetas" aria-label="Disciplinas">
+                    <li class="etiqueta">Edición de vídeo</li>
+                    <li class="etiqueta">Diseño gráfico</li>
+                    <li class="etiqueta">Diseño audiovisual</li>
+                </ul>
+            </header>
 
-                <div class="video">
-                        <iframe src="https://www.youtube.com/embed/WbzFA8KHF6I?si=8AZ7Ha0DeM6JY3F_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-
-                <div class="info categorias">
-                    <div class="categorias izquierda">
-                        <div class="contenidos">
-                            <h2 class="titular-secundario">CLIENTE</h2>
-                            <p class="texto-principal">ALDEAS INFANTILES SOS</p>
-                        </div>
-
-                        <div class="contenidos">
-                            <h2 class="titular-secundario">ROL</h2>
-                            <p class="texto-principal">DISEÑO Y EDICIÓN DE VIDEO</p>
-                        </div>
-                    </div>
-
-                    <div class="categorias derecha">
-                        <div class="contenidos">
-                            <h2 class="titular-secundario">DISCIPLINA</h2>
-                            <p class="texto-principal">MOTION GRAPHICS</p>
-                        </div>
-
-                        <div class="contenidos">
-                            <h2 class="titular-secundario">HERRAMIENTAS</h2>
-                            <p class="texto-principal">ILLUSTRATOR</p>
-                            <p class="texto-principal">ADOBE PREMIER</p>
-                            <p class="texto-principal">BANCO DE IMAGENES/ VIDEOS</p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class=" btn pag siguiente">
-                    <a href="videothevaluescorner.html">Anterior</a>
-                    <a href="aitana.html">Siguiente</a>
-
-                </div>
-
+            <div class="video-proyecto marco">
+                <iframe src="https://www.youtube.com/embed/WbzFA8KHF6I?si=8AZ7Ha0DeM6JY3F_"
+                    title="Vídeo del Informe de Alianzas 2025 de Aldeas Infantiles SOS"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" loading="lazy" allowfullscreen></iframe>
             </div>
 
-        </section>
+            <div class="ficha">
+                <dl class="ficha__columna">
+                    <div>
+                        <dt>Cliente</dt>
+                        <dd>Aldeas Infantiles SOS</dd>
+                    </div>
+                    <div>
+                        <dt>Rol</dt>
+                        <dd>Diseño y edición de vídeo</dd>
+                    </div>
+                </dl>
+                <dl class="ficha__columna ficha__columna--derecha">
+                    <div>
+                        <dt>Disciplina</dt>
+                        <dd>Motion graphics</dd>
+                    </div>
+                    <div>
+                        <dt>Herramientas</dt>
+                        <dd>Illustrator</dd>
+                        <dd>Premiere Pro</dd>
+                        <dd>Banco de imágenes y vídeos</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <nav class="botones paginacion" aria-label="Otros proyectos">
+                <a class="boton" href="videothevaluescorner.html">Anterior</a>
+                <a class="boton boton--secundario" href="proyectos.html">Todos los proyectos</a>
+                <a class="boton" href="aitana.html">Siguiente</a>
+            </nav>
+
+        </article>
+    </main>
 
     <div id="footer"></div>
-    <script src="js/script.js"></script>
 
 </body>
 </html>

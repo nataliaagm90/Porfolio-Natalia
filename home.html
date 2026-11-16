@@ -1,73 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Natalia Giménez · Diseñadora gráfica y digital en Madrid</title>
+    <meta name="description" content="Portfolio de Natalia Giménez, diseñadora gráfica y digital en Madrid con 5 años de experiencia en branding, redes sociales, motion graphics y email marketing.">
+
+    <meta property="og:title" content="Natalia Giménez · Diseñadora gráfica y digital en Madrid">
+    <meta property="og:description" content="Portfolio de Natalia Giménez, diseñadora gráfica y digital en Madrid con 5 años de experiencia en branding, redes sociales, motion graphics y email marketing.">
+    <meta property="og:image" content="https://nataliagm.com/img/logos/logo-portada-linkedin.jpg">
+    <meta property="og:type" content="website">
 
     <link rel="icon" type="image/png" href="img/logos/icono_natalia.png">
-    
+
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/stylemenu.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/fonts.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+
     <div id="menu"></div>
-    <section>
-        <div class="contenedor">
-            <div class="home contenido">
 
-                <div class="home-info">
-                    <h1 class="titular-primero">Diseñadora&nbsp;<b class="azulturquesa">gráfica</b>&nbsp;y digital</h1>
+    <main class="pagina">
+        <div class="contenedor home">
 
-                    <p class="texto-home"><b>5 años de experiencia · Madrid</b></p>
+            <section class="home__info">
+                <h1 class="titular">Diseñadora <span class="caligrafia">gráfica</span> y digital</h1>
+                <p class="destacado">5 años de experiencia · Madrid</p>
+                <p class="destacado home__clientes"><strong>Clientes:</strong> Aldeas Infantiles SOS, Sanen y The Values Corner</p>
 
-                    <p class="texto-home subtitulo">
-                        <b>Clientes:</b> Aldeas Infantiles SOS, Sanen y The Values Corner
-                    </p>
-
-                    <div class="btn acerca">
-                        <a href="img/cv/NataliaGimenez_CV_DisenadoraDigital.pdf">Ver CV</a>
-                        <a class="verproyectos" href="proyectos.html">Ver Proyectos</a>
-                    </div>
+                <div class="botones">
+                    <a class="boton" href="img/cv/NataliaGimenez_CV_DisenadoraDigital.pdf" target="_blank" rel="noopener">Ver CV</a>
+                    <a class="boton boton--secundario" href="proyectos.html">Ver proyectos</a>
                 </div>
+            </section>
 
-                <div class="proyectos-home">
+            <section aria-labelledby="titulo-destacados">
+                <h2 id="titulo-destacados" class="solo-lectores">Proyectos destacados</h2>
 
-                    <a href="socialmediasanen.html" class="proyecto-home">
-                        <img src="img/sanen/socialmedia/PublicacionesSanen.jpg" alt="Proyecto Sanen">
-                        <div class="proyecto-home-info">
-                            <p class="nombre-proyecto">Sanen</p>
-                            <p class="categoria-proyecto">Redes sociales desde cero</p>
-                        </div>
-                    </a>
+                <ul class="destacados">
+                    <li>
+                        <a href="socialmediasanen.html" class="destacado-proyecto">
+                            <div class="marco">
+                                <img src="img/sanen/socialmedia/PublicacionesSanen.jpg" alt="Publicaciones de Instagram de Sanen en varios móviles">
+                            </div>
+                            <div class="destacado-proyecto__info">
+                                <h3 class="destacado-proyecto__nombre">Sanen</h3>
+                                <p class="destacado-proyecto__descripcion">Redes sociales desde cero</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videoaldeas.html" class="destacado-proyecto">
+                            <div class="marco">
+                                <img src="img/aldeas/proyecto-video/cabeceravideo.jpg" alt="Fotograma del vídeo del Informe de Alianzas 2025 de Aldeas Infantiles SOS">
+                            </div>
+                            <div class="destacado-proyecto__info">
+                                <h3 class="destacado-proyecto__nombre">Aldeas Infantiles SOS</h3>
+                                <p class="destacado-proyecto__descripcion">Vídeo para el Informe de Alianzas 2025</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cosmeticos.html" class="destacado-proyecto">
+                            <div class="marco">
+                                <img src="img/cosmeticos/rosea-coleccion.jpg" alt="Colección de productos de la marca de cosmética Roséa">
+                            </div>
+                            <div class="destacado-proyecto__info">
+                                <h3 class="destacado-proyecto__nombre">Roséa</h3>
+                                <p class="destacado-proyecto__descripcion">Identidad y packaging de dos líneas de producto</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
 
-                    <a href="videoaldeas.html" class="proyecto-home">
-                        <img src="img/aldeas/proyecto-video/cabeceravideo.jpg" alt="Proyecto Aldeas Infantiles SOS">
-                        <div class="proyecto-home-info">
-                            <p class="nombre-proyecto">Aldeas Infantiles SOS</p>
-                            <p class="categoria-proyecto">Vídeo para el Informe de Alianzas 2025</p>
-                        </div>
-                    </a>
+            <p class="home__ver-todos"><a class="enlace-destacado" href="proyectos.html">Ver todos los proyectos →</a></p>
 
-                    <a href="cosmeticos.html" class="proyecto-home">
-                        <img src="img/cosmeticos/Firefly_manten la imagen tal cual esta 680088.png" alt="Proyecto ROSÉA">
-                        <div class="proyecto-home-info">
-                            <p class="nombre-proyecto">Roséa</p>
-                            <p class="categoria-proyecto">Identidad y packaging de dos líneas de producto</p>
-                        </div>
-                    </a>
-
-                </div>
-                 <p class="categoria-proyecto"><a href="proyectos.html">Ver todos los proyectos → </a></p>
-            </div>
         </div>
-    </section>
+    </main>
 
-    
     <div id="footer"></div>
-    <script src="js/script.js" defer></script>   
-    
+
 </body>
 </html>
