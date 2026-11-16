@@ -258,23 +258,130 @@
         });
     }
 
-    /* --- Lupa de la página 404 ------------------------------------------- */
+    /* --- Página 404: texto que se escribe solo y lupa -------------------- */
 
-    function initLupa404() {
+    const movimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Envuelve cada letra en <span class="letra">, salvo la caligrafía, que se dibuja entera
+    function separarEnLetras(elemento) {
+        [...elemento.childNodes].forEach(nodo => {
+            if (nodo.nodeType === Node.TEXT_NODE) {
+                const texto = nodo.textContent.replace(/\s+/g, ' ');
+                if (!texto.trim()) {
+                    nodo.remove();
+                    return;
+                }
+                const fragmento = document.createDocumentFragment();
+                [...texto].forEach(caracter => {
+                    const letra = document.createElement('span');
+                    letra.className = 'letra';
+                    letra.textContent = caracter;
+                    fragmento.appendChild(letra);
+                });
+                nodo.replaceWith(fragmento);
+            } else if (nodo.nodeType === Node.ELEMENT_NODE && !nodo.classList.contains('caligrafia')) {
+                separarEnLetras(nodo);
+            }
+        });
+    }
+
+    function initPagina404() {
         const contenedor = document.querySelector('.texto-lupa');
-        const revelado = contenedor && contenedor.querySelector('.texto-lupa__revelado');
-        if (!revelado || !tieneRaton) return;
+        if (!contenedor) return;
+
+        const original = contenedor.querySelector('.texto-lupa__original');
+        const revelado = contenedor.querySelector('.texto-lupa__revelado');
+        const lupa = contenedor.querySelector('.lupa');
+
+        // Los lectores de pantalla leen la frase completa, no letra a letra
+        original.setAttribute('aria-label', original.textContent.replace(/\s+/g, ' ').trim());
+
+        // Quita los espacios sobrantes al principio de cada línea
+        original.querySelectorAll('.linea').forEach(linea => {
+            if (linea.firstChild && linea.firstChild.nodeType === Node.TEXT_NODE) {
+                linea.firstChild.textContent = linea.firstChild.textContent.replace(/^\s+/, '');
+            }
+        });
+
+        separarEnLetras(original);
+
+        // La copia de la lupa es exactamente el mismo HTML que el original
+        if (revelado) revelado.innerHTML = original.innerHTML;
+
+        const piezasOriginal = [...original.querySelectorAll('.letra, .caligrafia')];
+        const piezasCopia = revelado ? [...revelado.querySelectorAll('.letra, .caligrafia')] : [];
+
+        const mostrar = indice => {
+            piezasOriginal[indice].classList.add('visible');
+            if (piezasCopia[indice]) piezasCopia[indice].classList.add('visible');
+        };
+
+        if (movimientoReducido) {
+            piezasOriginal.forEach((_, indice) => mostrar(indice));
+        } else {
+            escribir(piezasOriginal, mostrar);
+        }
+
+        if (revelado && lupa && tieneRaton) initLupa(contenedor, revelado, lupa);
+    }
+
+    function escribir(piezas, mostrar) {
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor-escritura';
+        cursor.setAttribute('aria-hidden', 'true');
+
+        let indice = 0;
+
+        const siguiente = () => {
+            if (indice >= piezas.length) {
+                window.setTimeout(() => cursor.classList.add('oculto'), 1800);
+                return;
+            }
+
+            const pieza = piezas[indice];
+            mostrar(indice);
+            pieza.after(cursor);
+
+            const caracter = pieza.textContent;
+            let pausa = 55;
+            if (pieza.classList.contains('caligrafia')) pausa = 900;
+            else if (caracter === ',' || caracter === '!') pausa = 320;
+            else if (caracter === ' ') pausa = 70;
+
+            // Pequeña pausa al cambiar de línea, como al escribir de verdad
+            const siguientePieza = piezas[indice + 1];
+            if (siguientePieza && siguientePieza.closest('.linea') !== pieza.closest('.linea')) pausa += 180;
+
+            indice += 1;
+            window.setTimeout(siguiente, pausa);
+        };
+
+        window.setTimeout(siguiente, 400);
+    }
+
+    // La lupa amplía la copia alrededor del ratón y la recorta en un círculo
+    function initLupa(contenedor, revelado, lupa) {
+        const AUMENTO = 1.35;
+        const radio = () => lupa.offsetWidth / 2;
 
         contenedor.addEventListener('pointermove', evento => {
             if (evento.pointerType !== 'mouse') return;
             const zona = contenedor.getBoundingClientRect();
             const x = evento.clientX - zona.left;
             const y = evento.clientY - zona.top;
-            revelado.style.clipPath = `circle(85px at ${x}px ${y}px)`;
+
+            revelado.style.transformOrigin = `${x}px ${y}px`;
+            revelado.style.transform = `scale(${AUMENTO})`;
+            revelado.style.clipPath = `circle(${radio() / AUMENTO}px at ${x}px ${y}px)`;
+
+            lupa.style.left = `${x}px`;
+            lupa.style.top = `${y}px`;
+            lupa.classList.add('activa');
         });
 
         contenedor.addEventListener('pointerleave', () => {
             revelado.style.clipPath = 'circle(0 at 0 0)';
+            lupa.classList.remove('activa');
         });
     }
 
@@ -289,7 +396,7 @@
         initLineasDeTiempo();
         initCursorProyectos();
         initCursorImagenes();
-        initLupa404();
+        initPagina404();
     }
 
     if (document.readyState === 'loading') {

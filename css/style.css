@@ -1065,6 +1065,7 @@ main {
     width: 100%;
 }
 
+/* Original y copia ampliada ocupan exactamente el mismo sitio */
 .texto-lupa__original,
 .texto-lupa__revelado {
     grid-area: 1 / 1;
@@ -1075,27 +1076,82 @@ main {
     display: block;
 }
 
-.texto-lupa__original .linea {
-    clip-path: inset(0 50% 0 50%);
-    animation: revelar 0.9s ease-out forwards;
+/* --- Texto que se escribe solo ------------------------------------------ */
+
+.letra {
+    opacity: 0;
 }
 
-.texto-lupa__original .linea:nth-child(1) { animation-delay: 0.2s; }
-.texto-lupa__original .linea:nth-child(2) { animation-delay: 0.6s; }
-.texto-lupa__original .linea:nth-child(3) { animation-delay: 1s; }
+.letra.visible {
+    opacity: 1;
+}
 
-/* Texto que se ve a través de la lupa con un cristal verdoso */
+/* "error 404" se dibuja en caligrafía, igual que "gráfica" en la home */
+.texto-lupa .caligrafia {
+    clip-path: inset(-40% 100% -50% -10%);
+}
+
+.texto-lupa .caligrafia.visible {
+    animation: escribir 0.9s ease-out forwards;
+}
+
+/* En la 404 la caligrafía no cambia de color ni de tamaño al pasar el ratón */
+.texto-lupa .caligrafia:hover {
+    transform: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+}
+
+/* Cursor de escritura */
+.cursor-escritura {
+    display: inline-block;
+    width: 2px;
+    height: 0.85em;
+    margin-left: 3px;
+    vertical-align: -0.08em;
+    background-color: var(--color-principal);
+    animation: parpadeo 0.9s steps(1) infinite;
+    transition: opacity 0.6s ease;
+}
+
+.cursor-escritura.oculto {
+    opacity: 0;
+}
+
+@keyframes parpadeo {
+    50% { background-color: transparent; }
+}
+
+/* --- Lupa: amplía el mismo texto, con la misma tipografía y colores ----- */
+
 .texto-lupa__revelado {
     position: relative;
     z-index: 2;
-    clip-path: circle(0 at 0 0);
     pointer-events: none;
-    background: radial-gradient(circle,
-            rgba(18, 178, 180, 0.10) 0%,
-            rgba(18, 178, 180, 0.06) 65%,
-            rgba(18, 178, 180, 0.02) 100%);
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
+    background-color: var(--color-fondo);
+    clip-path: circle(0 at 0 0);
+    will-change: transform, clip-path;
+}
+
+.lupa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 170px;
+    height: 170px;
+    border: 2px solid var(--color-principal);
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lupa.activa {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1105,7 +1161,8 @@ main {
 }
 
 @media (hover: none), (pointer: coarse) {
-    .texto-lupa__revelado {
+    .texto-lupa__revelado,
+    .lupa {
         display: none;
     }
 }
@@ -1383,8 +1440,13 @@ main {
         transform: none;
     }
 
-    .home .caligrafia {
+    .home .caligrafia,
+    .texto-lupa .caligrafia {
         clip-path: none;
+    }
+
+    .letra {
+        opacity: 1;
     }
 
     /* Línea de tiempo visible desde el principio */

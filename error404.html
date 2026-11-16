@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <main class="">
+    <main>
         <div class="contenedor error-404">
             <div class="texto-lupa">
                 <h1 class="titular texto-lupa__original">
@@ -30,11 +30,9 @@
                     <span class="linea">esta idea se</span>
                     <span class="linea">ha perdido!</span>
                 </h1>
-                <div class="titular texto-lupa__revelado" aria-hidden="true">
-                    <span class="linea">¡Vaya, error 404,</span>
-                    <span class="linea">esta idea se</span>
-                    <span class="linea">ha perdido!</span>
-                </div>
+                <!-- La copia ampliada que se ve dentro de la lupa se genera desde js/script.js -->
+                <div class="titular texto-lupa__revelado" aria-hidden="true"></div>
+                <div class="lupa" aria-hidden="true"></div>
             </div>
 
             <div class="botones">
