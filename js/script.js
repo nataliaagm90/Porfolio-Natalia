@@ -250,7 +250,7 @@
         });
     }
 
-    /* --- Home: cortina en los proyectos destacados y lupa en el titular --- */
+    /* --- Home: cortina turquesa en los proyectos destacados --------------- */
 
     function initHome() {
         const home = document.querySelector('.home');
@@ -274,23 +274,6 @@
             }, { threshold: 0.2 });
             marcos.forEach(marco => observador.observe(marco));
         }
-
-        // Lupa en "Diseñadora gráfica y digital" (solo con ratón)
-        const titular = home.querySelector('.titular');
-        if (!titular || !tieneRaton) return;
-
-        const revelado = document.createElement('span');
-        revelado.className = 'texto-lupa__revelado';
-        revelado.setAttribute('aria-hidden', 'true');
-        revelado.innerHTML = titular.innerHTML;
-
-        const lupa = document.createElement('span');
-        lupa.className = 'lupa';
-        lupa.setAttribute('aria-hidden', 'true');
-
-        titular.classList.add('con-lupa');
-        titular.append(revelado, lupa);
-        initLupa(titular, revelado, lupa, 1.3);
     }
 
     /* --- Fichas de proyecto: cortina en imágenes, ficha en cascada y visor -- */
@@ -401,7 +384,7 @@
     // Círculo "VER" sobre las tarjetas de la página de proyectos
     function initCursorProyectos() {
         const cursor = document.querySelector('.cursor-proyectos');
-        const tarjetas = document.querySelectorAll('.galeria .card, .destacado-proyecto');
+        const tarjetas = document.querySelectorAll('.galeria .card');
         if (!cursor || !tarjetas.length || !tieneRaton) return;
 
         tarjetas.forEach(tarjeta => {

@@ -642,7 +642,7 @@ main {
 /* --- Home: cinta de disciplinas ------------------------------------------ */
 
 .cinta--disciplinas {
-    padding-block: var(--espacio-s);
+    padding-block: 12px;
     border-block: 1px solid rgba(18, 178, 180, 0.35);
 }
 
@@ -660,8 +660,8 @@ main {
     display: flex;
     align-items: center;
     font-family: var(--fuente-titulos);
-    font-size: var(--texto-destacado);
-    font-weight: var(--peso-light);
+    font-size: var(--texto-cuerpo);   /* mismo tamaño que las descripciones de las tarjetas */
+    font-weight: var(--peso-normal);
     line-height: 1.2;
     white-space: nowrap;
     color: var(--color-gris);
@@ -670,45 +670,11 @@ main {
 /* Separador turquesa entre disciplinas */
 .disciplinas li::after {
     content: "";
-    width: 7px;
-    height: 7px;
-    margin-inline: clamp(18px, 2.2vw, 34px);
+    width: 5px;
+    height: 5px;
+    margin-inline: clamp(14px, 1.6vw, 24px);
     background-color: var(--color-principal);
     border-radius: 50%;
-}
-
-/* --- Home: lupa en el titular (js añade la copia y el aro) --------------- */
-
-.titular.con-lupa {
-    position: relative;
-}
-
-.con-lupa .texto-lupa__revelado {
-    position: absolute;
-    inset: 0;
-}
-
-.con-lupa .lupa {
-    width: 130px;
-    height: 130px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .titular.con-lupa {
-        cursor: none;
-    }
-
-    /* Las tarjetas de la home usan el círculo "VER" */
-    .destacado-proyecto {
-        cursor: none;
-    }
-}
-
-/* Con lupa, la caligrafía no cambia de color al pasar el ratón */
-.con-lupa .caligrafia:hover {
-    transform: none;
-    background: none;
-    -webkit-text-fill-color: currentColor;
 }
 
 /* --- Animaciones de entrada de Acerca de --------------------------------- */
