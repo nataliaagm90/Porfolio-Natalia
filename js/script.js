@@ -550,6 +550,7 @@
             },
             ocultar() {
                 revelado.style.clipPath = 'circle(0 at 0 0)';
+                revelado.style.transform = 'none';   // sin aumento, para que no ensanche la página
                 lupa.classList.remove('activa');
             }
         };
