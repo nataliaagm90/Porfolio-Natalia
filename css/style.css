@@ -42,7 +42,7 @@
     --fuente-caligrafia: 'Birthstone', cursive;
 
     /* Escala tipográfica (fluida: móvil → pantalla grande) */
-    --texto-display: clamp(45px, 7vw, 150px);   /* titular principal de página */
+    --texto-display: clamp(40px, 5vw, 96px);    /* titular principal de página */
     --texto-h2: clamp(28px, 3.2vw, 45px);       /* títulos de sección */
     --texto-titulo: clamp(26px, 3.3vw, 40px);   /* título de proyecto */
     --texto-destacado: clamp(20px, 2vw, 30px);  /* subtítulos y entradillas */
@@ -458,6 +458,10 @@ main {
 
 .home__info .titular {
     margin-bottom: var(--espacio-s);
+}
+
+.home__info .destacado {
+    font-size: var(--texto-h3);
 }
 
 .home__clientes {
@@ -1082,6 +1086,7 @@ main {
     .home__info .titular {
         grid-column: 1;
         grid-row: 1 / span 4;
+        align-self: center;
         margin-bottom: 0;
         line-height: 1.05;
     }
