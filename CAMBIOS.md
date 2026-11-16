@@ -18,6 +18,7 @@ Todo sale de las variables definidas al principio del archivo. Para cambiar un c
 | `--texto-cuerpo` | Párrafos |
 | `--texto-pequeno` | Pie de página y textos secundarios |
 | `--texto-mini` | Etiquetas tipo píldora |
+| `--color-texto` | Color del texto general (gris oscuro #3C3C3C, nunca negro puro) |
 | `--margen-lateral` | Margen izquierdo/derecho igual para menú, contenido y pie |
 | `--borde-marco` | Borde turquesa de todas las imágenes (2 px) |
 

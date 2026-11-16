@@ -30,7 +30,7 @@
     --color-principal: #12B2B4;
     --color-principal-claro: #6CBFC0;
     --color-principal-oscuro: #155153;
-    --color-texto: #000000;
+    --color-texto: #3C3C3C;               /* texto general: gris oscuro en vez de negro puro */
     --color-texto-suave: rgba(24, 23, 23, 0.6);
     --color-gris: #727272;
     --color-gris-claro: #A4A4A4;
@@ -1076,6 +1076,32 @@ main {
     .presentacion__texto .botones,
     .proyecto__cabecera .etiquetas {
         justify-content: flex-start;
+    }
+
+    /* Titular a la izquierda; datos y botones alineados a la derecha */
+    .home__info {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: var(--espacio-l);
+        row-gap: var(--espacio-xs);
+        align-content: start;
+    }
+
+    .home__info .titular {
+        grid-column: 1;
+        grid-row: 1 / span 4;
+        margin-bottom: 0;
+        line-height: 1.05;
+    }
+
+    .home__info > :not(.titular) {
+        grid-column: 2;
+        text-align: right;
+    }
+
+    .home__info .botones {
+        justify-content: flex-end;
+        margin-top: var(--espacio-s);
     }
 
     .destacados {
