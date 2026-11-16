@@ -79,8 +79,16 @@
     --radio-boton: 40px;
     --transicion: 0.3s ease;
 
-    /* Cursor de marca */
-    --cursor-marca: url("../img/logos/cursor-natalia.png") 16 16;
+    /* Cursor de marca: la "G" del logo. Versión básica y versión nítida para pantallas Retina */
+    --cursor-marca: url("../img/logos/cursor-natalia-1x.png") 16 16;
+    --cursor-marca-nitido: image-set(
+            url("../img/logos/cursor-natalia-1x.png") 1x,
+            url("../img/logos/cursor-natalia@2x.png") 2x,
+            url("../img/logos/cursor-natalia@3x.png") 3x) 16 16;
+    --cursor-marca-nitido-webkit: -webkit-image-set(
+            url("../img/logos/cursor-natalia-1x.png") 1x,
+            url("../img/logos/cursor-natalia@2x.png") 2x,
+            url("../img/logos/cursor-natalia@3x.png") 3x) 16 16;
 }
 
 
@@ -122,6 +130,31 @@ a,
 button,
 [role="button"] {
     cursor: var(--cursor-marca), pointer;
+}
+
+/* Cursor nítido en los navegadores que lo permiten (Chrome, Edge, Safari, Firefox recientes) */
+@supports (cursor: -webkit-image-set(url("x.png") 1x) 16 16, auto) {
+    body {
+        cursor: var(--cursor-marca-nitido-webkit), auto;
+    }
+
+    a,
+    button,
+    [role="button"] {
+        cursor: var(--cursor-marca-nitido-webkit), pointer;
+    }
+}
+
+@supports (cursor: image-set(url("x.png") 1x) 16 16, auto) {
+    body {
+        cursor: var(--cursor-marca-nitido), auto;
+    }
+
+    a,
+    button,
+    [role="button"] {
+        cursor: var(--cursor-marca-nitido), pointer;
+    }
 }
 
 img,
