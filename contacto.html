@@ -27,23 +27,35 @@
     <main class="pagina">
         <div class="contenedor">
             <section class="contacto">
-                <h1 class="titular">¿Hablamos?</h1>
-                <p class="destacado"><strong>Disponible para nuevos proyectos</strong></p>
 
-                <div class="contacto__textos">
-                    <p class="texto">Busco un puesto como diseñadora gráfica y digital en agencia, estudio o equipo de marca, en Madrid, Hibridro o en remoto. Disponibilidad inmediata.</p>
-                    <p class="texto">Si crees que puedo encajar en tu equipo, escríbeme a <a class="enlace-destacado" href="mailto:nataliagimenez.min@gmail.com">nataliagimenez.min@gmail.com</a></p>
+                <!-- Titular con lupa: el recorrido inicial y la copia ampliada se generan desde js/script.js -->
+                <div class="texto-lupa texto-lupa--ajustado">
+                    <h1 class="titular texto-lupa__original">¿Hablamos?</h1>
+                    <div class="titular texto-lupa__revelado" aria-hidden="true"></div>
+                    <div class="lupa" aria-hidden="true"></div>
                 </div>
 
-                <div class="botones">
-                    <a class="boton" href="img/cv/NataliaGimenez_CV_DisenadoraDigital.pdf" target="_blank" rel="noopener">Ver CV</a>
+                <!-- Conversación: los mensajes aparecen uno a uno como en un chat -->
+                <div class="chat">
+                    <p class="burbuja burbuja--visitante">¿Buscas diseñadora gráfica y digital?</p>
+                    <p class="burbuja burbuja--natalia">¡Hola! Soy Natalia. Estoy <strong>disponible para nuevos proyectos</strong>, con incorporación inmediata.</p>
+                    <p class="burbuja burbuja--natalia">Busco un puesto en agencia, estudio o equipo de marca, en Madrid (presencial o híbrido) o en remoto.</p>
+                    <p class="burbuja burbuja--natalia">Si crees que puedo encajar en tu equipo, escríbeme a <a class="enlace-destacado enlace-email" href="mailto:nataliagimenez.min@gmail.com">nataliagimenez.min@gmail.com</a> y hablamos.</p>
                 </div>
 
-                <ul class="redes-sociales">
-                    <li><a href="mailto:nataliagimenez.min@gmail.com" aria-label="Enviar un email"><img src="img/iconos/redes/SVG/icono-email.svg" alt=""></a></li>
-                    <li><a href="https://www.linkedin.com/in/nataliaagm/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="img/iconos/redes/SVG/icono-linkedin.svg" alt=""></a></li>
-                    <li><a href="https://www.instagram.com/nataliagimenezminguez" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/iconos/redes/SVG/icono-instagram.svg" alt=""></a></li>
-                </ul>
+                <div class="contacto__acciones">
+                    <div class="botones">
+                        <a class="boton" href="img/cv/NataliaGimenez_CV_DisenadoraDigital.pdf" target="_blank" rel="noopener">Ver CV</a>
+                    </div>
+
+                    <ul class="redes-sociales">
+                        <li><a href="mailto:nataliagimenez.min@gmail.com" aria-label="Enviar un email"><img src="img/iconos/redes/SVG/icono-email.svg" alt=""></a></li>
+                        <li><a href="https://www.linkedin.com/in/nataliaagm/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="img/iconos/redes/SVG/icono-linkedin.svg" alt=""></a></li>
+                        <li><a href="https://www.instagram.com/nataliagimenezminguez" target="_blank" rel="noopener" aria-label="Instagram"><img src="img/iconos/redes/SVG/icono-instagram.svg" alt=""></a></li>
+                    </ul>
+                </div>
+
+                <p class="aviso-copiado" role="status" aria-live="polite"></p>
             </section>
         </div>
     </main>

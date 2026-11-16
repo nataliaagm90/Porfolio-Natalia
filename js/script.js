@@ -314,7 +314,7 @@
     }
 
     function initPagina404() {
-        const contenedor = document.querySelector('.texto-lupa');
+        const contenedor = document.querySelector('.error-404 .texto-lupa');
         if (!contenedor) return;
 
         const original = contenedor.querySelector('.texto-lupa__original');
@@ -387,29 +387,176 @@
         window.setTimeout(siguiente, 400);
     }
 
-    // La lupa amplía la copia alrededor del ratón y la recorta en un círculo
-    function initLupa(contenedor, revelado, lupa) {
-        const AUMENTO = 1.35;
+    // Controla una lupa: la mueve a un punto, ampliando la copia del texto en un círculo
+    function crearLupa(revelado, lupa, aumento) {
         const radio = () => lupa.offsetWidth / 2;
+        return {
+            mover(x, y) {
+                revelado.style.transformOrigin = `${x}px ${y}px`;
+                revelado.style.transform = `scale(${aumento})`;
+                revelado.style.clipPath = `circle(${radio() / aumento}px at ${x}px ${y}px)`;
+                lupa.style.left = `${x}px`;
+                lupa.style.top = `${y}px`;
+                lupa.classList.add('activa');
+            },
+            ocultar() {
+                revelado.style.clipPath = 'circle(0 at 0 0)';
+                lupa.classList.remove('activa');
+            }
+        };
+    }
+
+    // La lupa sigue al ratón dentro del contenedor
+    function initLupa(contenedor, revelado, lupa, aumento = 1.35) {
+        const control = crearLupa(revelado, lupa, aumento);
 
         contenedor.addEventListener('pointermove', evento => {
             if (evento.pointerType !== 'mouse') return;
             const zona = contenedor.getBoundingClientRect();
-            const x = evento.clientX - zona.left;
-            const y = evento.clientY - zona.top;
-
-            revelado.style.transformOrigin = `${x}px ${y}px`;
-            revelado.style.transform = `scale(${AUMENTO})`;
-            revelado.style.clipPath = `circle(${radio() / AUMENTO}px at ${x}px ${y}px)`;
-
-            lupa.style.left = `${x}px`;
-            lupa.style.top = `${y}px`;
-            lupa.classList.add('activa');
+            control.mover(evento.clientX - zona.left, evento.clientY - zona.top);
         });
 
-        contenedor.addEventListener('pointerleave', () => {
-            revelado.style.clipPath = 'circle(0 at 0 0)';
-            lupa.classList.remove('activa');
+        contenedor.addEventListener('pointerleave', () => control.ocultar());
+    }
+
+    /* --- Contacto: la lupa recorre "¿Hablamos?" y empieza la conversación -- */
+
+    function initContacto() {
+        const seccion = document.querySelector('.contacto');
+        if (!seccion) return;
+
+        const contenedor = seccion.querySelector('.texto-lupa');
+        const original = contenedor && contenedor.querySelector('.texto-lupa__original');
+        const revelado = contenedor && contenedor.querySelector('.texto-lupa__revelado');
+        const lupa = contenedor && contenedor.querySelector('.lupa');
+        const chat = seccion.querySelector('.chat');
+        const AUMENTO = 1.4;
+
+        if (revelado && original) revelado.innerHTML = original.innerHTML;
+
+        initCopiarEmail(seccion);
+
+        const activarLupaInteractiva = () => {
+            if (revelado && lupa && tieneRaton) initLupa(contenedor, revelado, lupa, AUMENTO);
+        };
+
+        if (movimientoReducido || !revelado || !lupa) {
+            activarLupaInteractiva();
+            return;
+        }
+
+        // Prepara la conversación para animarla (sin JavaScript se ve completa)
+        seccion.classList.add('contacto--animando');
+        if (chat) chat.classList.add('chat--animado');
+
+        recorrerConLupa(contenedor, crearLupa(revelado, lupa, AUMENTO), () => {
+            activarLupaInteractiva();
+            conversar(chat, () => seccion.classList.remove('contacto--animando'));
+        });
+    }
+
+    // Recorrido de la lupa por el titular, como si estuviera buscando
+    function recorrerConLupa(contenedor, control, alTerminar) {
+        const puntos = [[0.06, 0.5], [0.32, 0.3], [0.58, 0.68], [0.94, 0.42], [0.5, 0.5]];
+        const DURACION = 1800;
+        const suavizar = u => (u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2);
+        let inicio = null;
+
+        const posicion = progreso => {
+            const tramos = puntos.length - 1;
+            const f = Math.min(progreso * tramos, tramos - 0.0001);
+            const i = Math.floor(f);
+            const u = suavizar(f - i);
+            return [
+                puntos[i][0] + (puntos[i + 1][0] - puntos[i][0]) * u,
+                puntos[i][1] + (puntos[i + 1][1] - puntos[i][1]) * u
+            ];
+        };
+
+        const paso = ahora => {
+            if (inicio === null) inicio = ahora;
+            const progreso = Math.min((ahora - inicio) / DURACION, 1);
+            const [px, py] = posicion(progreso);
+            control.mover(px * contenedor.offsetWidth, py * contenedor.offsetHeight);
+
+            if (progreso < 1) {
+                window.requestAnimationFrame(paso);
+            } else {
+                window.setTimeout(() => {
+                    control.ocultar();
+                    alTerminar();
+                }, 300);
+            }
+        };
+
+        window.setTimeout(() => window.requestAnimationFrame(paso), 400);
+    }
+
+    // Muestra los mensajes uno a uno; antes de cada respuesta aparece "escribiendo…"
+    function conversar(chat, alTerminar) {
+        if (!chat) {
+            alTerminar();
+            return;
+        }
+
+        const burbujas = [...chat.querySelectorAll('.burbuja')];
+        const escribiendo = document.createElement('div');
+        escribiendo.className = 'escribiendo';
+        escribiendo.setAttribute('aria-hidden', 'true');
+        escribiendo.innerHTML = '<span></span><span></span><span></span>';
+        chat.appendChild(escribiendo);
+
+        let indice = 0;
+
+        const siguiente = () => {
+            if (indice >= burbujas.length) {
+                escribiendo.remove();
+                alTerminar();
+                return;
+            }
+
+            const burbuja = burbujas[indice];
+            indice += 1;
+
+            if (burbuja.classList.contains('burbuja--visitante')) {
+                burbuja.classList.add('visible');
+                window.setTimeout(siguiente, 500);
+                return;
+            }
+
+            chat.appendChild(escribiendo);
+            escribiendo.classList.add('visible');
+            window.setTimeout(() => {
+                escribiendo.classList.remove('visible');
+                burbuja.classList.add('visible');
+                window.setTimeout(siguiente, 300);
+            }, 650);
+        };
+
+        siguiente();
+    }
+
+    // Al pulsar el email se copia y aparece un aviso; si no se puede copiar, abre el correo
+    function initCopiarEmail(seccion) {
+        const aviso = seccion.querySelector('.aviso-copiado');
+        if (!aviso || !navigator.clipboard) return;
+        let temporizador;
+
+        seccion.querySelectorAll('.enlace-email').forEach(enlace => {
+            enlace.addEventListener('click', evento => {
+                const email = enlace.getAttribute('href').replace('mailto:', '');
+                evento.preventDefault();
+                navigator.clipboard.writeText(email)
+                    .then(() => {
+                        aviso.textContent = 'Email copiado';
+                        aviso.classList.add('visible');
+                        window.clearTimeout(temporizador);
+                        temporizador = window.setTimeout(() => aviso.classList.remove('visible'), 2200);
+                    })
+                    .catch(() => {
+                        window.location.href = enlace.getAttribute('href');
+                    });
+            });
         });
     }
 
@@ -426,6 +573,7 @@
         initCursorProyectos();
         initCursorImagenes();
         initPagina404();
+        initContacto();
     }
 
     if (document.readyState === 'loading') {
