@@ -18,6 +18,9 @@
 
     const tieneRaton = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
+    // Cambia este número cuando actualices menu.html o footer.html (igual que el ?v= de las páginas)
+    const VERSION = '20261116';
+
     /* --- Utilidades ------------------------------------------------------ */
 
     function paginaActual() {
@@ -27,7 +30,7 @@
 
     function cargarFragmento(contenedor, archivo, alCargar) {
         if (!contenedor) return;
-        fetch(archivo)
+        fetch(`${archivo}?v=${VERSION}`)
             .then(respuesta => {
                 if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
                 return respuesta.text();

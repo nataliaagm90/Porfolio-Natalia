@@ -732,11 +732,7 @@ main {
 .ficha.animar-al-ver.visible .ficha__columna--derecha > div:nth-child(1) { animation-delay: 0.3s; }
 .ficha.animar-al-ver.visible .ficha__columna--derecha > div:nth-child(2) { animation-delay: 0.45s; }
 
-/* Las imágenes de la galería se pueden ampliar */
-.galeria-imagenes .marco[data-ampliable] {
-    cursor: zoom-in;
-}
-
+/* Las imágenes de la galería se pueden ampliar (se mantiene el cursor de círculo con punto) */
 .galeria-imagenes .marco[data-ampliable]:focus-visible {
     outline: 3px solid var(--color-principal);
     outline-offset: 4px;
