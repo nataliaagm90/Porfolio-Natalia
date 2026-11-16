@@ -186,6 +186,11 @@ main {
     color: var(--color-gris);
 }
 
+/* Cada parte del titular en su propia línea */
+.titular__linea {
+    display: block;
+}
+
 .caligrafia {
     display: inline-block;
     font-family: var(--fuente-caligrafia);
