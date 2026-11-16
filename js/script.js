@@ -197,6 +197,28 @@
         tarjetas.forEach(tarjeta => observador.observe(tarjeta));
     }
 
+    /* --- Línea de tiempo de "Acerca de": se dibuja al llegar a ella ------- */
+
+    function initLineasDeTiempo() {
+        const listas = document.querySelectorAll('.lista-datos');
+        if (!listas.length) return;
+
+        if (!('IntersectionObserver' in window)) {
+            listas.forEach(lista => lista.classList.add('visible'));
+            return;
+        }
+
+        const observador = new IntersectionObserver((entradas, obs) => {
+            entradas.forEach(entrada => {
+                if (!entrada.isIntersecting) return;
+                entrada.target.classList.add('visible');
+                obs.unobserve(entrada.target);
+            });
+        }, { threshold: 0.3 });
+
+        listas.forEach(lista => observador.observe(lista));
+    }
+
     /* --- Cursores personalizados ----------------------------------------- */
 
     // Círculo "VER" sobre las tarjetas de la página de proyectos
@@ -264,6 +286,7 @@
         initCookies();
         initPortadaCarga();
         initTarjetasProyectos();
+        initLineasDeTiempo();
         initCursorProyectos();
         initCursorImagenes();
         initLupa404();
