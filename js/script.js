@@ -247,6 +247,109 @@
         });
     }
 
+    /* --- Fichas de proyecto: cortina en imágenes, ficha en cascada y visor -- */
+
+    function initFichasProyecto() {
+        const proyecto = document.querySelector('.proyecto');
+        if (!proyecto) return;
+
+        initVisorImagenes(proyecto);
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const animables = [...proyecto.querySelectorAll('.galeria-imagenes .marco, .video-proyecto, .ficha')];
+        if (!animables.length || !('IntersectionObserver' in window)) return;
+
+        // Las imágenes de una misma fila entran una detrás de otra
+        let ultimaFila = null;
+        let posicionEnFila = 0;
+        animables.forEach(elemento => {
+            elemento.classList.add('animar-al-ver');
+            if (!elemento.classList.contains('marco')) return;
+            const fila = Math.round(elemento.getBoundingClientRect().top);
+            posicionEnFila = fila === ultimaFila ? posicionEnFila + 1 : 0;
+            ultimaFila = fila;
+            elemento.style.setProperty('--retraso', `${posicionEnFila * 0.15}s`);
+        });
+
+        const observador = new IntersectionObserver((entradas, obs) => {
+            entradas.forEach(entrada => {
+                if (!entrada.isIntersecting) return;
+                entrada.target.classList.add('visible');
+                obs.unobserve(entrada.target);
+            });
+        }, { threshold: 0.2 });
+
+        animables.forEach(elemento => observador.observe(elemento));
+    }
+
+    // Visor a pantalla completa: clic en una imagen, flechas para pasar y Esc para cerrar
+    function initVisorImagenes(proyecto) {
+        const marcos = [...proyecto.querySelectorAll('.galeria-imagenes .marco')]
+            .filter(marco => marco.querySelector('img'));
+        if (!marcos.length || typeof HTMLDialogElement === 'undefined') return;
+
+        const visor = document.createElement('dialog');
+        visor.className = 'visor';
+        visor.setAttribute('aria-label', 'Imagen ampliada');
+        visor.innerHTML = `
+            <img class="visor__imagen" alt="">
+            <button type="button" class="visor__boton visor__cerrar" aria-label="Cerrar">×</button>
+            <button type="button" class="visor__boton visor__anterior" aria-label="Imagen anterior">←</button>
+            <button type="button" class="visor__boton visor__siguiente" aria-label="Imagen siguiente">→</button>
+            <p class="visor__contador" aria-live="polite"></p>`;
+        document.body.appendChild(visor);
+
+        const imagen = visor.querySelector('.visor__imagen');
+        const contador = visor.querySelector('.visor__contador');
+        let actual = 0;
+
+        const mostrar = indice => {
+            actual = (indice + marcos.length) % marcos.length;
+            const original = marcos[actual].querySelector('img');
+            // Reinicia la animación de entrada en cada imagen
+            imagen.style.animation = 'none';
+            void imagen.offsetWidth;
+            imagen.style.animation = '';
+            imagen.src = original.currentSrc || original.src;
+            imagen.alt = original.alt;
+            contador.textContent = `${actual + 1} / ${marcos.length}`;
+        };
+
+        marcos.forEach((marco, indice) => {
+            marco.setAttribute('data-ampliable', '');
+            marco.setAttribute('tabindex', '0');
+            marco.setAttribute('role', 'button');
+            marco.setAttribute('aria-label', `Ampliar imagen: ${marco.querySelector('img').alt}`);
+
+            const abrir = () => {
+                mostrar(indice);
+                visor.showModal();
+            };
+            marco.addEventListener('click', abrir);
+            marco.addEventListener('keydown', evento => {
+                if (evento.key === 'Enter' || evento.key === ' ') {
+                    evento.preventDefault();
+                    abrir();
+                }
+            });
+        });
+
+        visor.querySelector('.visor__cerrar').addEventListener('click', () => visor.close());
+        visor.querySelector('.visor__anterior').addEventListener('click', () => mostrar(actual - 1));
+        visor.querySelector('.visor__siguiente').addEventListener('click', () => mostrar(actual + 1));
+
+        // Clic fuera de la imagen cierra el visor
+        visor.addEventListener('click', evento => {
+            if (evento.target === visor) visor.close();
+        });
+
+        visor.addEventListener('keydown', evento => {
+            if (evento.key === 'ArrowLeft') mostrar(actual - 1);
+            if (evento.key === 'ArrowRight') mostrar(actual + 1);
+        });
+    }
+
     /* --- Cursores personalizados ----------------------------------------- */
 
     // Círculo "VER" sobre las tarjetas de la página de proyectos
@@ -570,6 +673,7 @@
         initTarjetasProyectos();
         initLineasDeTiempo();
         initBotonesMagneticos();
+        initFichasProyecto();
         initCursorProyectos();
         initCursorImagenes();
         initPagina404();

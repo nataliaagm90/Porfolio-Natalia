@@ -676,6 +676,218 @@ main {
     100% { opacity: 1; transform: scale(1); }
 }
 
+
+/* --- Animaciones de las fichas de proyecto ------------------------------- */
+
+/* Cabecera: título, cliente, descripción y etiquetas en cascada */
+.proyecto__cabecera > * {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: aparecer 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.proyecto__cabecera > :nth-child(2) { animation-delay: 0.12s; }
+.proyecto__cabecera > :nth-child(3) { animation-delay: 0.24s; }
+.proyecto__cabecera > :nth-child(4) { animation-delay: 0.36s; }
+
+/* Imágenes y vídeo: cortina turquesa al llegar a ellas (js añade .animar-al-ver) */
+.marco.animar-al-ver::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-color: var(--color-principal);
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+.marco.animar-al-ver > * {
+    opacity: 0;
+}
+
+.marco.animar-al-ver.visible::before {
+    animation: cortina 0.9s cubic-bezier(0.77, 0, 0.18, 1) var(--retraso, 0s) forwards;
+}
+
+.marco.animar-al-ver.visible > * {
+    animation: mostrar-contenido 0.01s calc(var(--retraso, 0s) + 0.45s) forwards;
+}
+
+@keyframes mostrar-contenido {
+    to { opacity: 1; }
+}
+
+/* Ficha: cliente, rol, disciplina y herramientas en cascada */
+.ficha.animar-al-ver dl > div {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.ficha.animar-al-ver.visible dl > div {
+    animation: aparecer 0.6s ease-out forwards;
+}
+
+.ficha.animar-al-ver.visible dl > div:nth-child(2) { animation-delay: 0.15s; }
+.ficha.animar-al-ver.visible .ficha__columna--derecha > div:nth-child(1) { animation-delay: 0.3s; }
+.ficha.animar-al-ver.visible .ficha__columna--derecha > div:nth-child(2) { animation-delay: 0.45s; }
+
+/* Las imágenes de la galería se pueden ampliar */
+.galeria-imagenes .marco[data-ampliable] {
+    cursor: zoom-in;
+}
+
+.galeria-imagenes .marco[data-ampliable]:focus-visible {
+    outline: 3px solid var(--color-principal);
+    outline-offset: 4px;
+}
+
+/* --- Visor de imágenes a pantalla completa -------------------------------- */
+
+.visor {
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    padding: 0;
+    border: none;
+    background: transparent;
+    overflow: hidden;
+}
+
+.visor::backdrop {
+    background-color: rgba(255, 255, 255, 0.96);
+}
+
+.visor[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visor__imagen {
+    max-width: min(90vw, 1600px);
+    max-height: 82dvh;
+    object-fit: contain;
+    border: var(--borde-marco);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    animation: abrir-visor 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes abrir-visor {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+}
+
+.visor__boton {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--color-principal);
+    background-color: var(--color-fondo);
+    border: 1.5px solid var(--color-principal);
+    border-radius: 50%;
+    transition: color var(--transicion), background-color var(--transicion), transform var(--transicion);
+}
+
+.visor__boton:hover,
+.visor__boton:focus-visible {
+    color: var(--color-fondo);
+    background-color: var(--color-principal);
+    transform: scale(1.06);
+}
+
+.visor__cerrar { top: 24px; right: 24px; }
+.visor__anterior { left: 24px; top: 50%; translate: 0 -50%; }
+.visor__siguiente { right: 24px; top: 50%; translate: 0 -50%; }
+
+.visor__contador {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    translate: -50% 0;
+    font-size: var(--texto-pequeno);
+    color: var(--color-gris);
+}
+
+@media (max-width: 768px) {
+    .visor__anterior,
+    .visor__siguiente {
+        top: auto;
+        bottom: 14px;
+        translate: none;
+    }
+
+    .visor__contador {
+        bottom: 28px;
+    }
+}
+
+/* --- Barra de progreso de lectura (solo CSS, en navegadores compatibles) -- */
+
+@supports (animation-timeline: scroll()) {
+    .proyecto::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1001;
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-principal);
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: progreso-lectura linear both;
+        animation-timeline: scroll(root);
+    }
+}
+
+@keyframes progreso-lectura {
+    to { transform: scaleX(1); }
+}
+
+/* --- Transición suave al cambiar de página -------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+        navigation: auto;
+    }
+
+    /* El menú se queda quieto; solo cambia el contenido */
+    #menu {
+        view-transition-name: menu;
+    }
+
+    ::view-transition-old(root) {
+        animation: salir-pagina 0.25s ease-in forwards;
+    }
+
+    ::view-transition-new(root) {
+        animation: entrar-pagina 0.35s ease-out;
+    }
+}
+
+@keyframes salir-pagina {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes entrar-pagina {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
 /* --- Hover de las tarjetas: imagen que se acerca, nombre subrayado y flecha */
 
 .destacado-proyecto__nombre {
@@ -1652,8 +1864,16 @@ main {
         transform: none;
     }
 
-    .presentacion__foto::after {
+    .presentacion__foto::after,
+    .marco.animar-al-ver::before {
         display: none;
+    }
+
+    .proyecto__cabecera > *,
+    .marco.animar-al-ver > *,
+    .ficha.animar-al-ver dl > div {
+        opacity: 1;
+        transform: none;
     }
 
     .letra {
