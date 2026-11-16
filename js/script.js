@@ -250,6 +250,49 @@
         });
     }
 
+    /* --- Home: cortina en los proyectos destacados y lupa en el titular --- */
+
+    function initHome() {
+        const home = document.querySelector('.home');
+        if (!home) return;
+
+        const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Cortina turquesa en cada tarjeta, una detrás de otra, tras el titular
+        const marcos = [...home.querySelectorAll('.destacados .marco')];
+        if (!reducido && marcos.length && 'IntersectionObserver' in window) {
+            marcos.forEach((marco, indice) => {
+                marco.classList.add('animar-al-ver');
+                marco.style.setProperty('--retraso', `${0.5 + indice * 0.15}s`);
+            });
+            const observador = new IntersectionObserver((entradas, obs) => {
+                entradas.forEach(entrada => {
+                    if (!entrada.isIntersecting) return;
+                    entrada.target.classList.add('visible');
+                    obs.unobserve(entrada.target);
+                });
+            }, { threshold: 0.2 });
+            marcos.forEach(marco => observador.observe(marco));
+        }
+
+        // Lupa en "Diseñadora gráfica y digital" (solo con ratón)
+        const titular = home.querySelector('.titular');
+        if (!titular || !tieneRaton) return;
+
+        const revelado = document.createElement('span');
+        revelado.className = 'texto-lupa__revelado';
+        revelado.setAttribute('aria-hidden', 'true');
+        revelado.innerHTML = titular.innerHTML;
+
+        const lupa = document.createElement('span');
+        lupa.className = 'lupa';
+        lupa.setAttribute('aria-hidden', 'true');
+
+        titular.classList.add('con-lupa');
+        titular.append(revelado, lupa);
+        initLupa(titular, revelado, lupa, 1.3);
+    }
+
     /* --- Fichas de proyecto: cortina en imágenes, ficha en cascada y visor -- */
 
     function initFichasProyecto() {
@@ -358,7 +401,7 @@
     // Círculo "VER" sobre las tarjetas de la página de proyectos
     function initCursorProyectos() {
         const cursor = document.querySelector('.cursor-proyectos');
-        const tarjetas = document.querySelectorAll('.galeria .card');
+        const tarjetas = document.querySelectorAll('.galeria .card, .destacado-proyecto');
         if (!cursor || !tarjetas.length || !tieneRaton) return;
 
         tarjetas.forEach(tarjeta => {
@@ -677,6 +720,7 @@
         initLineasDeTiempo();
         initBotonesMagneticos();
         initFichasProyecto();
+        initHome();
         initCursorProyectos();
         initCursorImagenes();
         initPagina404();
