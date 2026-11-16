@@ -280,7 +280,9 @@ main {
     text-decoration: none;
 
     color: var(--color-fondo);
-    background-color: var(--color-principal);
+    background:
+        linear-gradient(var(--color-fondo), var(--color-fondo)) 0 0 / 0% 100% no-repeat,
+        var(--color-principal);
     border: 1.5px solid var(--color-principal);
     border-radius: var(--radio-boton);
 
@@ -295,8 +297,8 @@ main {
         background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Destello de luz que cruza el botón */
-.boton::after {
+/* Destello de luz que cruza el botón al rellenarse de turquesa (botón con borde) */
+.boton--secundario::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -313,11 +315,13 @@ main {
 .boton:hover,
 .boton:focus-visible {
     --salto: -3px;
+    color: var(--color-principal);
+    background-size: 100% 100%, auto;
     box-shadow: 0 8px 20px rgba(18, 178, 180, 0.28);
 }
 
-.boton:hover::after,
-.boton:focus-visible::after {
+.boton--secundario:hover::after,
+.boton--secundario:focus-visible::after {
     transform: translateX(120%);
 }
 
