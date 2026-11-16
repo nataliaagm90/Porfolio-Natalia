@@ -260,25 +260,25 @@ main {
 .botones {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--espacio-s);
+    gap: 12px;
 }
 
 .boton {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
-    padding: 12px 30px;
+    min-width: 140px;
+    padding: 9px 24px;
 
     font-family: var(--fuente-base);
-    font-size: clamp(15px, 1.2vw, 20px);
-    font-weight: var(--peso-light);
+    font-size: var(--texto-pequeno);
+    font-weight: var(--peso-normal);
     line-height: 1.2;
     text-decoration: none;
 
     color: var(--color-fondo);
     background-color: var(--color-principal);
-    border: 2px solid var(--color-principal);
+    border: 1.5px solid var(--color-principal);
     border-radius: var(--radio-boton);
 
     transition: transform var(--transicion), background-color var(--transicion), color var(--transicion);
@@ -286,7 +286,7 @@ main {
 
 .boton:hover,
 .boton:focus-visible {
-    transform: scale(1.05);
+    transform: scale(1.03);
     color: var(--color-principal);
     background-color: var(--color-fondo);
 }
@@ -1015,8 +1015,8 @@ main {
 /* Móvil: botones algo más compactos para que quepan dos por fila */
 @media (max-width: 768px) {
     .boton {
-        min-width: 140px;
-        padding: 12px 24px;
+        min-width: 120px;
+        padding: 9px 20px;
     }
 
     /* Anterior y Siguiente en la misma fila; "Todos los proyectos" debajo */
