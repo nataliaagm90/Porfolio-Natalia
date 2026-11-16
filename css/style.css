@@ -470,11 +470,33 @@ main {
     display: block;
 }
 
-.cookie-banner__titulo {
+.cookie-banner .cookie-banner__titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 10px;
     font-size: var(--texto-destacado);
-    font-weight: var(--peso-normal);
+    font-weight: var(--peso-bold);
     color: var(--color-principal);
+}
+
+/* Icono de galleta: contorno turquesa con pepitas rellenas */
+.cookie-banner__icono {
+    flex: none;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.cookie-banner__icono path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cookie-banner__icono circle {
+    fill: currentColor;
 }
 
 .cookie-banner p {

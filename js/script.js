@@ -19,7 +19,7 @@
     const tieneRaton = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     // Cambia este número cuando actualices menu.html o footer.html (igual que el ?v= de las páginas)
-    const VERSION = '20261116';
+    const VERSION = '20261117';
 
     /* --- Utilidades ------------------------------------------------------ */
 
@@ -75,7 +75,7 @@
         banner.setAttribute('role', 'dialog');
         banner.setAttribute('aria-label', 'Aviso de cookies');
         banner.innerHTML = `
-            <p class="cookie-banner__titulo">Cookies</p>
+            <p class="cookie-banner__titulo"><svg class="cookie-banner__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.5A9 9 0 1 1 11.5 3a3 3 0 0 0 3.5 3.5 3 3 0 0 0 3.5 3.5 3 3 0 0 0 2.5 2.5z"/><circle cx="8.5" cy="9.5" r="1.1"/><circle cx="12" cy="15" r="1.1"/><circle cx="16" cy="13.5" r="1"/><circle cx="7.5" cy="14.5" r="0.9"/></svg><span>Cookies</span></p>
             <p>Utilizamos cookies para mejorar tu experiencia y analizar el tráfico de la web.
                Puedes aceptar todas las cookies o rechazarlas.</p>
             <div class="botones">
