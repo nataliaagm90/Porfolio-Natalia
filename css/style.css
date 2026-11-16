@@ -745,7 +745,7 @@ main {
 .acercade {
     display: flex;
     flex-direction: column;
-    gap: var(--espacio-xl);
+    gap: clamp(40px, 4.5vw, 72px);
 }
 
 .presentacion {
@@ -784,7 +784,7 @@ main {
     font-size: var(--texto-h3);
     font-weight: var(--peso-bold);
     line-height: 1.4;
-    margin-bottom: 4px;
+    margin-bottom: var(--espacio-xs);
 }
 
 .quehago ul,
@@ -793,21 +793,18 @@ main {
 }
 
 .trayectoria {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--espacio-xl);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(40px, 4.5vw, 72px);
 }
 
 /* Filas con fecha fija a la izquierda y texto a la derecha */
 .lista-datos li {
-    display: grid;
-    grid-template-columns: 8.5em minmax(0, 1fr);
-    gap: var(--espacio-s);
-    padding-block: 4px;
+    padding-block: 6px;
 }
 
-.lista-datos__fecha {
-    color: var(--color-gris);
+.lista-datos__fecha::after {
+    content: " · ";
 }
 
 
@@ -1027,11 +1024,6 @@ main {
         justify-content: center;
     }
 
-    .lista-datos li {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0;
-        padding-block: 8px;
-    }
 }
 
 /* Tablet */
@@ -1139,10 +1131,15 @@ main {
         grid-row: span 2;
     }
 
-    /* Acerca de: foto y texto en dos columnas */
+    /* Acerca de: foto pequeña a la izquierda y texto ocupando el resto del ancho */
     .presentacion {
-        grid-template-columns: minmax(250px, 430px) minmax(0, 1fr);
-        gap: clamp(30px, 5vw, 75px);
+        grid-template-columns: clamp(180px, 20%, 320px) minmax(0, 1fr);
+        align-items: start;
+        gap: clamp(24px, 3.5vw, 56px);
+    }
+
+    .presentacion__texto {
+        gap: var(--espacio-s);
     }
 
     .presentacion__foto {
@@ -1152,10 +1149,6 @@ main {
     .quehago {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: clamp(20px, 3vw, 45px);
-    }
-
-    .trayectoria {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .cookie-banner {
